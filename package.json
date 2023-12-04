@@ -13,6 +13,22 @@
 		"Linters"
 	],
 	"contributes": {
+		"languages": [
+			{
+				"id": "niva",
+				"aliases": [
+					"Niva",
+					"niva"
+				],
+				"extensions": [
+					".niva"
+				],
+				"icon": {
+					"light": "./images/file-light.png",
+					"dark": "./images/file-dark.png"
+				},
+			}
+		],
 	},
 	"__metadata": {
 		"isPreReleaseVersion": false
