@@ -1,6 +1,6 @@
 {
-	"fileTypes": ["scala"],
-	"firstLineMatch": "^#!/.*\\b\\w*scala\\b",
+	"fileTypes": ["niva"],
+	"firstLineMatch": "^#!/.*\\b\\w*niva\\b",
 	"foldingStartMarker": "/\\*\\*|\\{\\s*$",
 	"foldingStopMarker": "\\*\\*/|^\\s*\\}",
 	"keyEquivalent": "^~S",
@@ -13,10 +13,10 @@
 			{
 				"1":
 				{
-					"name": "meta.bracket.scala"
+					"name": "meta.bracket.niva"
 				}
 			},
-			"name": "meta.parentheses.scala"
+			"name": "meta.parentheses.niva"
 		},
 		"imports":
 		{
@@ -26,7 +26,7 @@
 			{
 				"1":
 				{
-					"name": "keyword.other.import.scala"
+					"name": "keyword.other.import.niva"
 				}
 			},
 			"patterns": [
@@ -35,15 +35,15 @@
 			},
 			{
 				"match": "\\b(given)\\b",
-				"name": "keyword.other.import.given.scala"
+				"name": "keyword.other.import.given.niva"
 			},
 			{
 				"match": "[A-Z\\p{Lt}\\p{Lu}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?",
-				"name": "entity.name.class.import.scala"
+				"name": "entity.name.class.import.niva"
 			},
 			{
 				"match": "(`[^`]+`|(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+))",
-				"name": "entity.name.import.scala"
+				"name": "entity.name.import.niva"
 			},
 			{
 				"match": "\\.",
@@ -56,7 +56,7 @@
 				{
 					"0":
 					{
-						"name": "meta.bracket.scala"
+						"name": "meta.bracket.niva"
 					}
 				},
 				"patterns": [
@@ -66,33 +66,33 @@
 					{
 						"1":
 						{
-							"name": "keyword.other.import.given.scala"
+							"name": "keyword.other.import.given.niva"
 						},
 						"2":
 						{
-							"name": "entity.name.class.import.renamed-from.scala"
+							"name": "entity.name.class.import.renamed-from.niva"
 						},
 						"3":
 						{
-							"name": "entity.name.import.renamed-from.scala"
+							"name": "entity.name.import.renamed-from.niva"
 						},
 						"4":
 						{
-							"name": "keyword.other.arrow.scala"
+							"name": "keyword.other.arrow.niva"
 						},
 						"5":
 						{
-							"name": "entity.name.class.import.renamed-to.scala"
+							"name": "entity.name.class.import.renamed-to.niva"
 						},
 						"6":
 						{
-							"name": "entity.name.import.renamed-to.scala"
+							"name": "entity.name.import.renamed-to.niva"
 						}
 					}
 				},
 				{
 					"match": "\\b(given)\\b",
-					"name": "keyword.other.import.given.scala"
+					"name": "keyword.other.import.given.niva"
 				},
 				{
 					"match": "(given\\s+)?(?:([A-Z\\p{Lt}\\p{Lu}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?)|(`[^`]+`|(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)))",
@@ -100,15 +100,15 @@
 					{
 						"1":
 						{
-							"name": "keyword.other.import.given.scala"
+							"name": "keyword.other.import.given.niva"
 						},
 						"2":
 						{
-							"name": "entity.name.class.import.scala"
+							"name": "entity.name.class.import.niva"
 						},
 						"3":
 						{
-							"name": "entity.name.import.scala"
+							"name": "entity.name.import.niva"
 						}
 					}
 				}],
@@ -116,12 +116,12 @@
 				{
 					"0":
 					{
-						"name": "meta.bracket.scala"
+						"name": "meta.bracket.niva"
 					}
 				},
-				"name": "meta.import.selector.scala"
+				"name": "meta.import.selector.niva"
 			}],
-			"name": "meta.import.scala"
+			"name": "meta.import.niva"
 		},
 		"exports":
 		{
@@ -131,7 +131,7 @@
 			{
 				"1":
 				{
-					"name": "keyword.other.export.scala"
+					"name": "keyword.other.export.niva"
 				}
 			},
 			"patterns": [
@@ -140,15 +140,15 @@
 			},
 			{
 				"match": "\\b(given)\\b",
-				"name": "keyword.other.export.given.scala"
+				"name": "keyword.other.export.given.niva"
 			},
 			{
 				"match": "[A-Z\\p{Lt}\\p{Lu}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?",
-				"name": "entity.name.class.export.scala"
+				"name": "entity.name.class.export.niva"
 			},
 			{
 				"match": "(`[^`]+`|(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+))",
-				"name": "entity.name.export.scala"
+				"name": "entity.name.export.niva"
 			},
 			{
 				"match": "\\.",
@@ -161,7 +161,7 @@
 				{
 					"0":
 					{
-						"name": "meta.bracket.scala"
+						"name": "meta.bracket.niva"
 					}
 				},
 				"patterns": [
@@ -171,33 +171,33 @@
 					{
 						"1":
 						{
-							"name": "keyword.other.export.given.scala"
+							"name": "keyword.other.export.given.niva"
 						},
 						"2":
 						{
-							"name": "entity.name.class.export.renamed-from.scala"
+							"name": "entity.name.class.export.renamed-from.niva"
 						},
 						"3":
 						{
-							"name": "entity.name.export.renamed-from.scala"
+							"name": "entity.name.export.renamed-from.niva"
 						},
 						"4":
 						{
-							"name": "keyword.other.arrow.scala"
+							"name": "keyword.other.arrow.niva"
 						},
 						"5":
 						{
-							"name": "entity.name.class.export.renamed-to.scala"
+							"name": "entity.name.class.export.renamed-to.niva"
 						},
 						"6":
 						{
-							"name": "entity.name.export.renamed-to.scala"
+							"name": "entity.name.export.renamed-to.niva"
 						}
 					}
 				},
 				{
 					"match": "\\b(given)\\b",
-					"name": "keyword.other.export.given.scala"
+					"name": "keyword.other.export.given.niva"
 				},
 				{
 					"match": "(given\\s+)?(?:([A-Z\\p{Lt}\\p{Lu}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?)|(`[^`]+`|(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)))",
@@ -205,15 +205,15 @@
 					{
 						"1":
 						{
-							"name": "keyword.other.export.given.scala"
+							"name": "keyword.other.export.given.niva"
 						},
 						"2":
 						{
-							"name": "entity.name.class.export.scala"
+							"name": "entity.name.class.export.niva"
 						},
 						"3":
 						{
-							"name": "entity.name.export.scala"
+							"name": "entity.name.export.niva"
 						}
 					}
 				}],
@@ -221,35 +221,35 @@
 				{
 					"0":
 					{
-						"name": "meta.bracket.scala"
+						"name": "meta.bracket.niva"
 					}
 				},
-				"name": "meta.export.selector.scala"
+				"name": "meta.export.selector.niva"
 			}],
-			"name": "meta.export.scala"
+			"name": "meta.export.niva"
 		},
 		"constants":
 		{
 			"patterns": [
 			{
 				"match": "\\b(false|null|true)\\b",
-				"name": "constant.language.scala"
+				"name": "constant.language.niva"
 			},
 			{
 				"match": "\\b(0[xX][0-9a-fA-F_]*)\\b",
-				"name": "constant.numeric.scala"
+				"name": "constant.numeric.niva"
 			},
 			{
 				"match": "\\b(([0-9][0-9_]*(\\.[0-9][0-9_]*)?)([eE](\\+|-)?[0-9][0-9_]*)?|[0-9][0-9_]*)[LlFfDd]?\\b",
-				"name": "constant.numeric.scala"
+				"name": "constant.numeric.niva"
 			},
 			{
 				"match": "(\\.[0-9][0-9_]*)([eE](\\+|-)?[0-9][0-9_]*)?[LlFfDd]?\\b",
-				"name": "constant.numeric.scala"
+				"name": "constant.numeric.niva"
 			},
 			{
 				"match": "\\b(this|super)\\b",
-				"name": "variable.language.scala"
+				"name": "variable.language.niva"
 			}]
 		},
 		"script-header":
@@ -259,10 +259,10 @@
 			{
 				"1":
 				{
-					"name": "string.unquoted.shebang.scala"
+					"name": "string.unquoted.shebang.niva"
 				}
 			},
-			"name": "comment.block.shebang.scala"
+			"name": "comment.block.shebang.niva"
 		},
 		"code":
 		{
@@ -319,7 +319,7 @@
 				"include": "#inline"
 			},
 			{
-				"include": "#scala-quoted-or-symbol"
+				"include": "#niva-quoted-or-symbol"
 			},
 			{
 				"include": "#char-literal"
@@ -359,22 +359,22 @@
 				{
 					"0":
 					{
-						"name": "punctuation.definition.string.begin.scala"
+						"name": "punctuation.definition.string.begin.niva"
 					}
 				},
 				"patterns": [
 				{
 					"match": "\\\\\\\\|\\\\u[0-9A-Fa-f]{4}",
-					"name": "constant.character.escape.scala"
+					"name": "constant.character.escape.niva"
 				}],
 				"endCaptures":
 				{
 					"0":
 					{
-						"name": "punctuation.definition.string.end.scala"
+						"name": "punctuation.definition.string.end.niva"
 					}
 				},
-				"name": "string.quoted.triple.scala"
+				"name": "string.quoted.triple.niva"
 			},
 			{
 				"begin": "\\b(raw)(\"\"\")",
@@ -383,34 +383,34 @@
 				{
 					"1":
 					{
-						"name": "keyword.interpolation.scala"
+						"name": "keyword.interpolation.niva"
 					},
 					"2":
 					{
-						"name": "string.quoted.triple.interpolated.scala punctuation.definition.string.begin.scala"
+						"name": "string.quoted.triple.interpolated.niva punctuation.definition.string.begin.niva"
 					}
 				},
 				"patterns": [
 				{
 					"match": "\\$[\\$\"]",
-					"name": "constant.character.escape.scala"
+					"name": "constant.character.escape.niva"
 				},
 				{
 					"include": "#string-interpolation"
 				},
 				{
 					"match": ".",
-					"name": "string.quoted.triple.interpolated.scala"
+					"name": "string.quoted.triple.interpolated.niva"
 				}],
 				"endCaptures":
 				{
 					"1":
 					{
-						"name": "string.quoted.triple.interpolated.scala punctuation.definition.string.end.scala"
+						"name": "string.quoted.triple.interpolated.niva punctuation.definition.string.end.niva"
 					},
 					"2":
 					{
-						"name": "invalid.illegal.unrecognized-string-escape.scala"
+						"name": "invalid.illegal.unrecognized-string-escape.niva"
 					}
 				}
 			},
@@ -421,11 +421,11 @@
 				{
 					"1":
 					{
-						"name": "keyword.interpolation.scala"
+						"name": "keyword.interpolation.niva"
 					},
 					"2":
 					{
-						"name": "string.quoted.triple.interpolated.scala punctuation.definition.string.begin.scala"
+						"name": "string.quoted.triple.interpolated.niva punctuation.definition.string.begin.niva"
 					}
 				},
 				"patterns": [
@@ -434,21 +434,21 @@
 				},
 				{
 					"match": "\\\\\\\\|\\\\u[0-9A-Fa-f]{4}",
-					"name": "constant.character.escape.scala"
+					"name": "constant.character.escape.niva"
 				},
 				{
 					"match": ".",
-					"name": "string.quoted.triple.interpolated.scala"
+					"name": "string.quoted.triple.interpolated.niva"
 				}],
 				"endCaptures":
 				{
 					"1":
 					{
-						"name": "string.quoted.triple.interpolated.scala punctuation.definition.string.end.scala"
+						"name": "string.quoted.triple.interpolated.niva punctuation.definition.string.end.niva"
 					},
 					"2":
 					{
-						"name": "invalid.illegal.unrecognized-string-escape.scala"
+						"name": "invalid.illegal.unrecognized-string-escape.niva"
 					}
 				}
 			},
@@ -459,26 +459,26 @@
 				{
 					"0":
 					{
-						"name": "punctuation.definition.string.begin.scala"
+						"name": "punctuation.definition.string.begin.niva"
 					}
 				},
 				"patterns": [
 				{
 					"match": "\\\\(?:[btnfr\\\\\"']|[0-7]{1,3}|u[0-9A-Fa-f]{4})",
-					"name": "constant.character.escape.scala"
+					"name": "constant.character.escape.niva"
 				},
 				{
 					"match": "\\\\.",
-					"name": "invalid.illegal.unrecognized-string-escape.scala"
+					"name": "invalid.illegal.unrecognized-string-escape.niva"
 				}],
 				"endCaptures":
 				{
 					"0":
 					{
-						"name": "punctuation.definition.string.end.scala"
+						"name": "punctuation.definition.string.end.niva"
 					}
 				},
-				"name": "string.quoted.double.scala"
+				"name": "string.quoted.double.niva"
 			},
 			{
 				"begin": "\\b(raw)(\")",
@@ -487,34 +487,34 @@
 				{
 					"1":
 					{
-						"name": "keyword.interpolation.scala"
+						"name": "keyword.interpolation.niva"
 					},
 					"2":
 					{
-						"name": "string.quoted.double.interpolated.scala punctuation.definition.string.begin.scala"
+						"name": "string.quoted.double.interpolated.niva punctuation.definition.string.begin.niva"
 					}
 				},
 				"patterns": [
 				{
 					"match": "\\$[\\$\"]",
-					"name": "constant.character.escape.scala"
+					"name": "constant.character.escape.niva"
 				},
 				{
 					"include": "#string-interpolation"
 				},
 				{
 					"match": ".",
-					"name": "string.quoted.double.interpolated.scala"
+					"name": "string.quoted.double.interpolated.niva"
 				}],
 				"endCaptures":
 				{
 					"1":
 					{
-						"name": "string.quoted.double.interpolated.scala punctuation.definition.string.end.scala"
+						"name": "string.quoted.double.interpolated.niva punctuation.definition.string.end.niva"
 					},
 					"2":
 					{
-						"name": "invalid.illegal.unrecognized-string-escape.scala"
+						"name": "invalid.illegal.unrecognized-string-escape.niva"
 					}
 				}
 			},
@@ -525,42 +525,42 @@
 				{
 					"1":
 					{
-						"name": "keyword.interpolation.scala"
+						"name": "keyword.interpolation.niva"
 					},
 					"2":
 					{
-						"name": "string.quoted.double.interpolated.scala punctuation.definition.string.begin.scala"
+						"name": "string.quoted.double.interpolated.niva punctuation.definition.string.begin.niva"
 					}
 				},
 				"patterns": [
 				{
 					"match": "\\$[\\$\"]",
-					"name": "constant.character.escape.scala"
+					"name": "constant.character.escape.niva"
 				},
 				{
 					"include": "#string-interpolation"
 				},
 				{
 					"match": "\\\\(?:[btnfr\\\\\"']|[0-7]{1,3}|u[0-9A-Fa-f]{4})",
-					"name": "constant.character.escape.scala"
+					"name": "constant.character.escape.niva"
 				},
 				{
 					"match": "\\\\.",
-					"name": "invalid.illegal.unrecognized-string-escape.scala"
+					"name": "invalid.illegal.unrecognized-string-escape.niva"
 				},
 				{
 					"match": ".",
-					"name": "string.quoted.double.interpolated.scala"
+					"name": "string.quoted.double.interpolated.niva"
 				}],
 				"endCaptures":
 				{
 					"1":
 					{
-						"name": "string.quoted.double.interpolated.scala punctuation.definition.string.end.scala"
+						"name": "string.quoted.double.interpolated.niva punctuation.definition.string.end.niva"
 					},
 					"2":
 					{
-						"name": "invalid.illegal.unrecognized-string-escape.scala"
+						"name": "invalid.illegal.unrecognized-string-escape.niva"
 					}
 				}
 			}]
@@ -574,7 +574,7 @@
 				{
 					"1":
 					{
-						"name": "keyword.declaration.scala"
+						"name": "keyword.declaration.niva"
 					}
 				}
 			}]
@@ -583,28 +583,28 @@
 		{
 			"patterns": [
 			{
-				"name": "constant.character.escape.interpolation.scala",
+				"name": "constant.character.escape.interpolation.niva",
 				"match": "\\$\\$"
 			},
 			{
-				"name": "meta.template.expression.scala",
+				"name": "meta.template.expression.niva",
 				"match": "(\\$)([A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\p{Lo}\\p{Nl}\\p{Ll}0-9]*)",
 				"captures":
 				{
 					"1":
 					{
-						"name": "punctuation.definition.template-expression.begin.scala"
+						"name": "punctuation.definition.template-expression.begin.niva"
 					}
 				}
 			},
 			{
-				"name": "meta.template.expression.scala",
+				"name": "meta.template.expression.niva",
 				"begin": "\\$\\{",
 				"beginCaptures":
 				{
 					"0":
 					{
-						"name": "punctuation.definition.template-expression.begin.scala"
+						"name": "punctuation.definition.template-expression.begin.niva"
 					}
 				},
 				"end": "\\}",
@@ -612,14 +612,14 @@
 				{
 					"0":
 					{
-						"name": "punctuation.definition.template-expression.end.scala"
+						"name": "punctuation.definition.template-expression.end.niva"
 					}
 				},
 				"patterns": [
 				{
 					"include": "#code"
 				}],
-				"contentName": "meta.embedded.line.scala"
+				"contentName": "meta.embedded.line.niva"
 			}]
 		},
 		"xml-entity":
@@ -667,7 +667,7 @@
 			"patterns": [
 			{
 				"match": "(?<!:):(?!:)",
-				"name": "meta.colon.scala"
+				"name": "meta.colon.niva"
 			}],
 			"comment": "For themes: Matching type colons"
 		},
@@ -676,27 +676,27 @@
 			"patterns": [
 			{
 				"match": "\\b(return|throw)\\b",
-				"name": "keyword.control.flow.jump.scala"
+				"name": "keyword.control.flow.jump.niva"
 			},
 			{
 				"match": "\\b(classOf|isInstanceOf|asInstanceOf)\\b",
-				"name": "support.function.type-of.scala"
+				"name": "support.function.type-of.niva"
 			},
 			{
 				"match": "\\b(else|if|then|do|while|for|yield|match|case)\\b",
-				"name": "keyword.control.flow.scala"
+				"name": "keyword.control.flow.niva"
 			},
 			{
 				"match": "^\\s*(end)\\s+(if|while|for|match)(?=\\s*(//.*|/\\*(?!.*\\*/\\s*\\S.*).*)?$)",
-				"name": "keyword.control.flow.end.scala"
+				"name": "keyword.control.flow.end.niva"
 			},
 			{
 				"match": "^\\s*(end)\\s+(val)(?=\\s*(//.*|/\\*(?!.*\\*/\\s*\\S.*).*)?$)",
-				"name": "keyword.declaration.stable.end.scala"
+				"name": "keyword.declaration.stable.end.niva"
 			},
 			{
 				"match": "^\\s*(end)\\s+(var)(?=\\s*(//.*|/\\*(?!.*\\*/\\s*\\S.*).*)?$)",
-				"name": "keyword.declaration.volatile.end.scala"
+				"name": "keyword.declaration.volatile.end.niva"
 			},
 			{
 				"match": "^\\s*(end)\\s+(?:(new|extension)|([A-Z\\p{Lt}\\p{Lu}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?))(?=\\s*(//.*|/\\*(?!.*\\*/\\s*\\S.*).*)?$)",
@@ -704,11 +704,11 @@
 				{
 					"1":
 					{
-						"name": "keyword.declaration.end.scala"
+						"name": "keyword.declaration.end.niva"
 					},
 					"2":
 					{
-						"name": "keyword.declaration.end.scala"
+						"name": "keyword.declaration.end.niva"
 					},
 					"3":
 					{
@@ -718,11 +718,11 @@
 			},
 			{
 				"match": "\\b(catch|finally|try)\\b",
-				"name": "keyword.control.exception.scala"
+				"name": "keyword.control.exception.niva"
 			},
 			{
 				"match": "^\\s*(end)\\s+(try)(?=\\s*(//.*|/\\*(?!.*\\*/\\s*\\S.*).*)?$)",
-				"name": "keyword.control.exception.end.scala"
+				"name": "keyword.control.exception.end.niva"
 			},
 			{
 				"match": "^\\s*(end)\\s+(`[^`]+`|(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+))?(?=\\s*(//.*|/\\*(?!.*\\*/\\s*\\S.*).*)?$)",
@@ -730,7 +730,7 @@
 				{
 					"1":
 					{
-						"name": "keyword.declaration.end.scala"
+						"name": "keyword.declaration.end.niva"
 					},
 					"2":
 					{
@@ -740,19 +740,19 @@
 			},
 			{
 				"match": "(==?|!=|<=|>=|<>|<|>)",
-				"name": "keyword.operator.comparison.scala"
+				"name": "keyword.operator.comparison.niva"
 			},
 			{
 				"match": "(\\-|\\+|\\*|/(?![/*])|%|~)",
-				"name": "keyword.operator.arithmetic.scala"
+				"name": "keyword.operator.arithmetic.niva"
 			},
 			{
 				"match": "(?<![!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]|_)(!|&&|\\|\\|)(?![!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}])",
-				"name": "keyword.operator.logical.scala"
+				"name": "keyword.operator.logical.niva"
 			},
 			{
 				"match": "(<-|←|->|→|=>|⇒|\\?|\\:+|@|\\|)+",
-				"name": "keyword.operator.scala"
+				"name": "keyword.operator.niva"
 			}]
 		},
 		"singleton-type":
@@ -762,7 +762,7 @@
 			{
 				"1":
 				{
-					"name": "keyword.type.scala"
+					"name": "keyword.type.niva"
 				}
 			}
 		},
@@ -775,10 +775,10 @@
 			},
 			{
 				"match": "\\b(inline)\\b(?=(?:.(?!\\b(?:val|def|given)\\b))*\\b(if|match)\\b)",
-				"name": "keyword.control.flow.scala"
+				"name": "keyword.control.flow.niva"
 			}]
 		},
-		"scala-quoted-or-symbol":
+		"niva-quoted-or-symbol":
 		{
 			"patterns": [
 			{
@@ -787,25 +787,25 @@
 				{
 					"1":
 					{
-						"name": "keyword.control.flow.staging.scala constant.other.symbol.scala"
+						"name": "keyword.control.flow.staging.niva constant.other.symbol.niva"
 					},
 					"2":
 					{
-						"name": "constant.other.symbol.scala"
+						"name": "constant.other.symbol.niva"
 					}
 				}
 			},
 			{
 				"match": "'(?=\\s*\\{(?!'))",
-				"name": "keyword.control.flow.staging.scala"
+				"name": "keyword.control.flow.staging.niva"
 			},
 			{
 				"match": "'(?=\\s*\\[(?!'))",
-				"name": "keyword.control.flow.staging.scala"
+				"name": "keyword.control.flow.staging.niva"
 			},
 			{
 				"match": "\\$(?=\\s*\\{)",
-				"name": "keyword.control.flow.staging.scala"
+				"name": "keyword.control.flow.staging.niva"
 			}]
 		},
 		"xml-doublequotedString":
@@ -841,7 +841,7 @@
 				{
 					"1":
 					{
-						"name": "keyword.declaration.scala"
+						"name": "keyword.declaration.niva"
 					},
 					"2":
 					{
@@ -855,7 +855,7 @@
 				{
 					"1":
 					{
-						"name": "keyword.declaration.scala"
+						"name": "keyword.declaration.niva"
 					},
 					"2":
 					{
@@ -869,11 +869,11 @@
 				{
 					"1":
 					{
-						"name": "keyword.declaration.scala"
+						"name": "keyword.declaration.niva"
 					},
 					"2":
 					{
-						"name": "keyword.declaration.scala"
+						"name": "keyword.declaration.niva"
 					},
 					"3":
 					{
@@ -887,7 +887,7 @@
 				{
 					"1":
 					{
-						"name": "keyword.declaration.scala"
+						"name": "keyword.declaration.niva"
 					},
 					"2":
 					{
@@ -901,11 +901,11 @@
 				{
 					"1":
 					{
-						"name": "keyword.declaration.stable.scala"
+						"name": "keyword.declaration.stable.niva"
 					},
 					"2":
 					{
-						"name": "keyword.declaration.volatile.scala"
+						"name": "keyword.declaration.volatile.niva"
 					}
 				}
 			},
@@ -915,11 +915,11 @@
 				{
 					"1":
 					{
-						"name": "keyword.declaration.stable.scala"
+						"name": "keyword.declaration.stable.niva"
 					},
 					"2":
 					{
-						"name": "variable.stable.declaration.scala"
+						"name": "variable.stable.declaration.niva"
 					}
 				}
 			},
@@ -929,11 +929,11 @@
 				{
 					"1":
 					{
-						"name": "keyword.declaration.volatile.scala"
+						"name": "keyword.declaration.volatile.niva"
 					},
 					"2":
 					{
-						"name": "variable.volatile.declaration.scala"
+						"name": "variable.volatile.declaration.niva"
 					}
 				}
 			},
@@ -943,11 +943,11 @@
 				{
 					"1":
 					{
-						"name": "keyword.other.scoping.scala"
+						"name": "keyword.other.scoping.niva"
 					},
 					"2":
 					{
-						"name": "keyword.declaration.scala"
+						"name": "keyword.declaration.niva"
 					},
 					"3":
 					{
@@ -962,7 +962,7 @@
 				{
 					"1":
 					{
-						"name": "keyword.other.import.scala"
+						"name": "keyword.other.import.niva"
 					}
 				},
 				"patterns": [
@@ -971,13 +971,13 @@
 				},
 				{
 					"match": "(`[^`]+`|(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+))",
-					"name": "entity.name.package.scala"
+					"name": "entity.name.package.niva"
 				},
 				{
 					"match": "\\.",
 					"name": "punctuation.definition.package"
 				}],
-				"name": "meta.package.scala"
+				"name": "meta.package.niva"
 			},
 			{
 				"match": "\\b(given)\\b\\s*([_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|`[^`]+`)?",
@@ -985,7 +985,7 @@
 				{
 					"1":
 					{
-						"name": "keyword.declaration.scala"
+						"name": "keyword.declaration.niva"
 					},
 					"2":
 					{
@@ -1002,17 +1002,17 @@
 			{
 				"0":
 				{
-					"name": "punctuation.definition.character.begin.scala"
+					"name": "punctuation.definition.character.begin.niva"
 				}
 			},
 			"patterns": [
 			{
 				"match": "\\\\(?:[btnfr\\\\\"']|[0-7]{1,3}|u[0-9A-Fa-f]{4})",
-				"name": "constant.character.escape.scala"
+				"name": "constant.character.escape.niva"
 			},
 			{
 				"match": "\\\\.",
-				"name": "invalid.illegal.unrecognized-character-escape.scala"
+				"name": "invalid.illegal.unrecognized-character-escape.niva"
 			},
 			{
 				"match": "[^']{2,}",
@@ -1026,10 +1026,10 @@
 			{
 				"0":
 				{
-					"name": "punctuation.definition.character.end.scala"
+					"name": "punctuation.definition.character.end.niva"
 				}
 			},
-			"name": "string.quoted.other constant.character.literal.scala"
+			"name": "string.quoted.other constant.character.literal.niva"
 		},
 		"initialization":
 		{
@@ -1038,7 +1038,7 @@
 			{
 				"1":
 				{
-					"name": "keyword.declaration.scala"
+					"name": "keyword.declaration.niva"
 				}
 			}
 		},
@@ -1050,14 +1050,14 @@
 			{
 				"0":
 				{
-					"name": "punctuation.section.block.begin.scala"
+					"name": "punctuation.section.block.begin.niva"
 				}
 			},
 			"endCaptures":
 			{
 				"0":
 				{
-					"name": "punctuation.section.block.end.scala"
+					"name": "punctuation.section.block.end.niva"
 				}
 			},
 			"patterns": [
@@ -1071,16 +1071,16 @@
 			{
 				"match": "\\{",
 				"comment": "The punctuation.section.*.begin is needed for return snippet in source bundle",
-				"name": "punctuation.section.block.begin.scala"
+				"name": "punctuation.section.block.begin.niva"
 			},
 			{
 				"match": "\\}",
 				"comment": "The punctuation.section.*.end is needed for return snippet in source bundle",
-				"name": "punctuation.section.block.end.scala"
+				"name": "punctuation.section.block.end.niva"
 			},
 			{
 				"match": "{|}|\\(|\\)|\\[|\\]",
-				"name": "meta.bracket.scala"
+				"name": "meta.bracket.niva"
 			}],
 			"comment": "For themes: Brackets look nice when colored."
 		},
@@ -1119,7 +1119,7 @@
 		{
 			"match": "<%|=:=|<:<|<%<|>:|<:",
 			"comment": "For themes: Matching view bounds",
-			"name": "meta.bounds.scala"
+			"name": "meta.bounds.niva"
 		},
 		"using-directive":
 		{
@@ -1129,18 +1129,18 @@
 			{
 				"1":
 				{
-					"name": "punctuation.definition.comment.scala"
+					"name": "punctuation.definition.comment.niva"
 				},
 				"2":
 				{
-					"name": "keyword.other.import.scala"
+					"name": "keyword.other.import.niva"
 				},
 				"3":
 				{
 					"patterns": [
 					{
 						"match": "[A-Z\\p{Lt}\\p{Lu}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|`[^`]+`|(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)",
-						"name": "entity.name.import.scala"
+						"name": "entity.name.import.niva"
 					},
 					{
 						"match": "\\.",
@@ -1157,9 +1157,9 @@
 			},
 			{
 				"match": "[^\\s,]+",
-				"name": "string.quoted.double.scala"
+				"name": "string.quoted.double.niva"
 			}],
-			"name": "comment.line.shebang.scala"
+			"name": "comment.line.shebang.niva"
 		},
 		"comments":
 		{
@@ -1174,7 +1174,7 @@
 				{
 					"1":
 					{
-						"name": "punctuation.whitespace.comment.leading.scala"
+						"name": "punctuation.whitespace.comment.leading.niva"
 					}
 				},
 				"patterns": [
@@ -1185,10 +1185,10 @@
 					{
 						"0":
 						{
-							"name": "punctuation.definition.comment.scala"
+							"name": "punctuation.definition.comment.niva"
 						}
 					},
-					"name": "comment.line.double-slash.scala"
+					"name": "comment.line.double-slash.niva"
 				}]
 			}]
 		},
@@ -1201,10 +1201,10 @@
 				{
 					"0":
 					{
-						"name": "punctuation.definition.comment.scala"
+						"name": "punctuation.definition.comment.niva"
 					}
 				},
-				"name": "comment.block.empty.scala"
+				"name": "comment.block.empty.niva"
 			},
 			{
 				"end": "\\*/",
@@ -1213,7 +1213,7 @@
 				{
 					"1":
 					{
-						"name": "punctuation.definition.comment.scala"
+						"name": "punctuation.definition.comment.niva"
 					}
 				},
 				"patterns": [
@@ -1223,11 +1223,11 @@
 					{
 						"1":
 						{
-							"name": "keyword.other.documentation.scaladoc.scala"
+							"name": "keyword.other.documentation.nivadoc.niva"
 						},
 						"2":
 						{
-							"name": "variable.parameter.scala"
+							"name": "variable.parameter.niva"
 						}
 					}
 				},
@@ -1237,7 +1237,7 @@
 					{
 						"1":
 						{
-							"name": "keyword.other.documentation.scaladoc.scala"
+							"name": "keyword.other.documentation.nivadoc.niva"
 						},
 						"2":
 						{
@@ -1247,7 +1247,7 @@
 				},
 				{
 					"match": "@(return|see|note|example|constructor|usecase|author|version|since|todo|deprecated|migration|define|inheritdoc)\\b",
-					"name": "keyword.other.documentation.scaladoc.scala"
+					"name": "keyword.other.documentation.nivadoc.niva"
 				},
 				{
 					"match": "(\\[\\[)([^\\]]+)(\\]\\])",
@@ -1255,7 +1255,7 @@
 					{
 						"1":
 						{
-							"name": "punctuation.definition.documentation.link.scala"
+							"name": "punctuation.definition.documentation.link.niva"
 						},
 						"2":
 						{
@@ -1263,7 +1263,7 @@
 						},
 						"3":
 						{
-							"name": "punctuation.definition.documentation.link.scala"
+							"name": "punctuation.definition.documentation.link.niva"
 						}
 					}
 				},
@@ -1274,10 +1274,10 @@
 				{
 					"0":
 					{
-						"name": "punctuation.definition.comment.scala"
+						"name": "punctuation.definition.comment.niva"
 					}
 				},
-				"name": "comment.block.documentation.scala"
+				"name": "comment.block.documentation.niva"
 			},
 			{
 				"end": "\\*/",
@@ -1286,14 +1286,14 @@
 				{
 					"0":
 					{
-						"name": "punctuation.definition.comment.scala"
+						"name": "punctuation.definition.comment.niva"
 					}
 				},
 				"patterns": [
 				{
 					"include": "#block-comments"
 				}],
-				"name": "comment.block.scala"
+				"name": "comment.block.niva"
 			}]
 		},
 		"xml-embedded-content":
@@ -1310,10 +1310,10 @@
 				{
 					"0":
 					{
-						"name": "meta.bracket.scala"
+						"name": "meta.bracket.niva"
 					}
 				},
-				"name": "meta.source.embedded.scala"
+				"name": "meta.source.embedded.niva"
 			},
 			{
 				"match": " (?:([-_a-zA-Z0-9]+)((:)))?([_a-zA-Z-]+)=",
@@ -1353,7 +1353,7 @@
 				{
 					"1":
 					{
-						"name": "keyword.declaration.scala"
+						"name": "keyword.declaration.niva"
 					},
 					"2":
 					{
@@ -1371,7 +1371,7 @@
 				{
 					"1":
 					{
-						"name": "keyword.declaration.scala"
+						"name": "keyword.declaration.niva"
 					}
 				}
 			}]
@@ -1385,11 +1385,11 @@
 				{
 					"1":
 					{
-						"name": "variable.parameter.scala"
+						"name": "variable.parameter.niva"
 					},
 					"2":
 					{
-						"name": "meta.colon.scala"
+						"name": "meta.colon.niva"
 					}
 				}
 			}]
@@ -1503,6 +1503,6 @@
 	{
 		"include": "#code"
 	}],
-	"name": "Scala",
-	"scopeName": "source.scala"
+	"name": "Niva",
+	"scopeName": "source.niva"
 }

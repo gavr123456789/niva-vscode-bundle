@@ -39,6 +39,9 @@
 		],
 		"grammars": [
 			{
+				"language": "niva",
+				"scopeName": "source.niva",
+				"path": "./syntaxes/niva.tmLanguage.json"
 			}
 		],
 		"configuration": {
