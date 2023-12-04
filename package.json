@@ -1,6 +1,7 @@
 {
 	"version": "0.2.1",
 	"publisher": "PeyTy",
+	"icon": "images/icon.png",
 	"engines": {
 		"vscode": "^1.25.0"
 	},
