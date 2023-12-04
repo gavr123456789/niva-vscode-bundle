@@ -1,0 +1,78 @@
+{
+	"name": "vsniva",
+	"displayName": "Niva",
+	"description": "Niva Programming Language",
+	"version": "0.2.1",
+	"publisher": "PeyTy",
+	"author": "PeyTy",
+	"license": "MIT",
+	"icon": "images/icon.png",
+	"homepage": "https://github.com/gavr123456789/niva-vscode-bundle/blob/master/README.md",
+	"engines": {
+		"vscode": "^1.25.0"
+	},
+	"activationEvents": [
+		"onLanguage:niva"
+	],
+	"main": "./extension/extension.js",
+	"categories": [
+		"Programming Languages",
+		"Linters"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "niva",
+				"aliases": [
+					"Niva",
+					"niva"
+				],
+				"extensions": [
+					".niva"
+				],
+				"icon": {
+					"light": "./images/file-light.png",
+					"dark": "./images/file-dark.png"
+				},
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "niva",
+				"scopeName": "source.niva",
+				"path": "./syntaxes/niva.tmLanguage.json"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Niva",
+			"properties": {
+				"niva.path": {
+					"type": "string",
+					"default": "niva",
+					"description": "Path to Niva compiler"
+				}
+			}
+		},
+		"snippets": [
+			{
+				"language": "niva",
+				"path": "./snippets/niva.json"
+			}
+		]
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/gavr123456789/niva-vscode-bundle.git"
+	},
+	"bugs": {
+		"url": "https://github.com/gavr123456789/niva-vscode-bundle/issues"
+	},
+	"__metadata": {
+		"id": "00000000-0000-0000-0000-887b4cbe5b32",
+		"publisherDisplayName": "PeyTy",
+		"publisherId": "00000000-0000-0000-94b3-5b5ba4c7aece",
+		"isPreReleaseVersion": false
+	}
+}
