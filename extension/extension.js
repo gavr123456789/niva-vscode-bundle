@@ -56,13 +56,13 @@ exports.activate = function (context) {
         {
             provideCompletionItems(document, position, token, context) {
                 return new Promise((resolve, reject) => {
-                                reject()
-
+                    reject()
                 })
             }
         }
     )
 
+    /** @implements {vscode.DocumentSymbolProvider} */
     class NivaDocumentSymbolProvider {
         /**
         * @param {vscode.TextDocument} document
@@ -74,7 +74,7 @@ exports.activate = function (context) {
         // Promise<vscode.DocumentSymbol[]>
         {
             return new Promise((resolve, reject) => {
-                        resolve([])
+                resolve([])
             })
         }
     }
@@ -95,7 +95,7 @@ exports.activate = function (context) {
             const __word = document.getText(__range)
 
             return new Promise((resolve, reject) => {
-                        reject()
+                reject()
             })
         }
     }
