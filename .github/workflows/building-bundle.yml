@@ -1,0 +1,71 @@
+name: Building bundle
+
+on:
+  push:
+  pull_request:
+  release:
+    types:
+    - created
+
+jobs:
+  build-all:
+    name: 'Building'
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ windows-latest ]
+        node-version: [ 16.x ]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Build VSCode bundle
+      run: |
+        npx vsce package
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: vsniva-${{ github.sha }}
+        path: '*.vsix'
+
+  deploy-all:
+    name: 'Deploying'
+    needs: build-all
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ windows-latest ]
+        node-version: [ 16.x ]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Publish VSCode bundle
+      if: github.event_name == 'release' && github.event.action == 'created'
+      run: |
+        npx vsce publish
+      env:
+        VSCE_PAT: ${{ secrets.VSCE_PAT }}
