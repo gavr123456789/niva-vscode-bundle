@@ -1,4 +1,5 @@
 {
+    ".source.niva": {
         "for (element in array) { }": {
             "prefix": "for",
             "body": "for ${2:element} in ${1:array} {\n\t$0\n}"
@@ -51,4 +52,5 @@
             "prefix": "trycatch",
             "body": "try {\n\t$0\n} catch ${1:error} {\n\t\n}"
         }
+    }
 }

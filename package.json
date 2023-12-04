@@ -29,6 +29,12 @@
 				},
 			}
 		],
+		"snippets": [
+			{
+				"language": "niva",
+				"path": "./snippets/niva.json"
+			}
+		]
 	},
 	"__metadata": {
 		"isPreReleaseVersion": false
