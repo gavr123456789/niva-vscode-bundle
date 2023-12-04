@@ -19,6 +19,18 @@ exports.activate = function (context) {
     console.log("[Niva-Lint] Initialized.")
 
 
+    const provider1 = vscode.languages.registerCompletionItemProvider(
+        sel,
+        {
+            provideCompletionItems(document, position, token, context) {
+                return new Promise((resolve, reject) => {
+                                reject()
+
+                })
+            }
+        }
+    )
+
     class NivaDocumentSymbolProvider {
         /**
         * @param {vscode.TextDocument} document
@@ -62,6 +74,7 @@ exports.activate = function (context) {
     )
 
     context.subscriptions.push(
+        provider1, // TODO rename
         providerHover,
         providerSymbol
     )
