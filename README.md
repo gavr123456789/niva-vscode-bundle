@@ -1,3 +1,3 @@
 # Visual Studio Code support for Niva
 
-![Niva](niva.webp?raw=true)
+<img align="left" width="96px" height="96px" src="niva.webp" />
