@@ -1,1508 +1,244 @@
 {
-	"fileTypes": ["niva"],
-	"firstLineMatch": "^#!/.*\\b\\w*niva\\b",
-	"foldingStartMarker": "/\\*\\*|\\{\\s*$",
-	"foldingStopMarker": "\\*\\*/|^\\s*\\}",
-	"keyEquivalent": "^~S",
-	"repository":
-	{
-		"empty-parentheses":
-		{
-			"match": "(\\(\\))",
-			"captures":
-			{
-				"1":
-				{
-					"name": "meta.bracket.niva"
-				}
-			},
-			"name": "meta.parentheses.niva"
-		},
-		"imports":
-		{
-			"end": "(?<=[\\n;])",
-			"begin": "\\b(import)\\s+",
-			"beginCaptures":
-			{
-				"1":
-				{
-					"name": "keyword.other.import.niva"
-				}
-			},
-			"patterns": [
-			{
-				"include": "#comments"
-			},
-			{
-				"match": "\\b(given)\\b",
-				"name": "keyword.other.import.given.niva"
-			},
-			{
-				"match": "[A-Z\\p{Lt}\\p{Lu}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?",
-				"name": "entity.name.class.import.niva"
-			},
-			{
-				"match": "(`[^`]+`|(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+))",
-				"name": "entity.name.import.niva"
-			},
-			{
-				"match": "\\.",
-				"name": "punctuation.definition.import"
-			},
-			{
-				"end": "}",
-				"begin": "{",
-				"beginCaptures":
-				{
-					"0":
-					{
-						"name": "meta.bracket.niva"
-					}
-				},
-				"patterns": [
-				{
-					"match": "(?x)(given\\s)?\\s*(?:([A-Z\\p{Lt}\\p{Lu}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?)|(`[^`]+`|(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)))\\s*(=>)\\s*(?:([A-Z\\p{Lt}\\p{Lu}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?)|(`[^`]+`|(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)))\\s*",
-					"captures":
-					{
-						"1":
-						{
-							"name": "keyword.other.import.given.niva"
-						},
-						"2":
-						{
-							"name": "entity.name.class.import.renamed-from.niva"
-						},
-						"3":
-						{
-							"name": "entity.name.import.renamed-from.niva"
-						},
-						"4":
-						{
-							"name": "keyword.other.arrow.niva"
-						},
-						"5":
-						{
-							"name": "entity.name.class.import.renamed-to.niva"
-						},
-						"6":
-						{
-							"name": "entity.name.import.renamed-to.niva"
-						}
-					}
-				},
-				{
-					"match": "\\b(given)\\b",
-					"name": "keyword.other.import.given.niva"
-				},
-				{
-					"match": "(given\\s+)?(?:([A-Z\\p{Lt}\\p{Lu}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?)|(`[^`]+`|(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)))",
-					"captures":
-					{
-						"1":
-						{
-							"name": "keyword.other.import.given.niva"
-						},
-						"2":
-						{
-							"name": "entity.name.class.import.niva"
-						},
-						"3":
-						{
-							"name": "entity.name.import.niva"
-						}
-					}
-				}],
-				"endCaptures":
-				{
-					"0":
-					{
-						"name": "meta.bracket.niva"
-					}
-				},
-				"name": "meta.import.selector.niva"
-			}],
-			"name": "meta.import.niva"
-		},
-		"exports":
-		{
-			"end": "(?<=[\\n;])",
-			"begin": "\\b(export)\\s+",
-			"beginCaptures":
-			{
-				"1":
-				{
-					"name": "keyword.other.export.niva"
-				}
-			},
-			"patterns": [
-			{
-				"include": "#comments"
-			},
-			{
-				"match": "\\b(given)\\b",
-				"name": "keyword.other.export.given.niva"
-			},
-			{
-				"match": "[A-Z\\p{Lt}\\p{Lu}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?",
-				"name": "entity.name.class.export.niva"
-			},
-			{
-				"match": "(`[^`]+`|(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+))",
-				"name": "entity.name.export.niva"
-			},
-			{
-				"match": "\\.",
-				"name": "punctuation.definition.export"
-			},
-			{
-				"end": "}",
-				"begin": "{",
-				"beginCaptures":
-				{
-					"0":
-					{
-						"name": "meta.bracket.niva"
-					}
-				},
-				"patterns": [
-				{
-					"match": "(?x)(given\\s)?\\s*(?:([A-Z\\p{Lt}\\p{Lu}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?)|(`[^`]+`|(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)))\\s*(=>)\\s*(?:([A-Z\\p{Lt}\\p{Lu}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?)|(`[^`]+`|(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)))\\s*",
-					"captures":
-					{
-						"1":
-						{
-							"name": "keyword.other.export.given.niva"
-						},
-						"2":
-						{
-							"name": "entity.name.class.export.renamed-from.niva"
-						},
-						"3":
-						{
-							"name": "entity.name.export.renamed-from.niva"
-						},
-						"4":
-						{
-							"name": "keyword.other.arrow.niva"
-						},
-						"5":
-						{
-							"name": "entity.name.class.export.renamed-to.niva"
-						},
-						"6":
-						{
-							"name": "entity.name.export.renamed-to.niva"
-						}
-					}
-				},
-				{
-					"match": "\\b(given)\\b",
-					"name": "keyword.other.export.given.niva"
-				},
-				{
-					"match": "(given\\s+)?(?:([A-Z\\p{Lt}\\p{Lu}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?)|(`[^`]+`|(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)))",
-					"captures":
-					{
-						"1":
-						{
-							"name": "keyword.other.export.given.niva"
-						},
-						"2":
-						{
-							"name": "entity.name.class.export.niva"
-						},
-						"3":
-						{
-							"name": "entity.name.export.niva"
-						}
-					}
-				}],
-				"endCaptures":
-				{
-					"0":
-					{
-						"name": "meta.bracket.niva"
-					}
-				},
-				"name": "meta.export.selector.niva"
-			}],
-			"name": "meta.export.niva"
-		},
-		"constants":
-		{
-			"patterns": [
-			{
-				"match": "\\b(false|null|true)\\b",
-				"name": "constant.language.niva"
-			},
-			{
-				"match": "\\b(0[xX][0-9a-fA-F_]*)\\b",
-				"name": "constant.numeric.niva"
-			},
-			{
-				"match": "\\b(([0-9][0-9_]*(\\.[0-9][0-9_]*)?)([eE](\\+|-)?[0-9][0-9_]*)?|[0-9][0-9_]*)[LlFfDd]?\\b",
-				"name": "constant.numeric.niva"
-			},
-			{
-				"match": "(\\.[0-9][0-9_]*)([eE](\\+|-)?[0-9][0-9_]*)?[LlFfDd]?\\b",
-				"name": "constant.numeric.niva"
-			},
-			{
-				"match": "\\b(this|super)\\b",
-				"name": "variable.language.niva"
-			}]
-		},
-		"script-header":
-		{
-			"match": "^#!(.*)$",
-			"captures":
-			{
-				"1":
-				{
-					"name": "string.unquoted.shebang.niva"
-				}
-			},
-			"name": "comment.block.shebang.niva"
-		},
-		"code":
-		{
-			"patterns": [
-			{
-				"include": "#using-directive"
-			},
-			{
-				"include": "#script-header"
-			},
-			{
-				"include": "#storage-modifiers"
-			},
-			{
-				"include": "#declarations"
-			},
-			{
-				"include": "#inheritance"
-			},
-			{
-				"include": "#extension"
-			},
-			{
-				"include": "#imports"
-			},
-			{
-				"include": "#exports"
-			},
-			{
-				"include": "#comments"
-			},
-			{
-				"include": "#strings"
-			},
-			{
-				"include": "#initialization"
-			},
-			{
-				"include": "#xml-literal"
-			},
-			{
-				"include": "#keywords"
-			},
-			{
-				"include": "#using"
-			},
-			{
-				"include": "#constants"
-			},
-			{
-				"include": "#singleton-type"
-			},
-			{
-				"include": "#inline"
-			},
-			{
-				"include": "#niva-quoted-or-symbol"
-			},
-			{
-				"include": "#char-literal"
-			},
-			{
-				"include": "#empty-parentheses"
-			},
-			{
-				"include": "#parameter-list"
-			},
-			{
-				"include": "#qualifiedClassName"
-			},
-			{
-				"include": "#backQuotedVariable"
-			},
-			{
-				"include": "#curly-braces"
-			},
-			{
-				"include": "#meta-brackets"
-			},
-			{
-				"include": "#meta-bounds"
-			},
-			{
-				"include": "#meta-colons"
-			}]
-		},
-		"strings":
-		{
-			"patterns": [
-			{
-				"end": "\"\"\"(?!\")",
-				"begin": "\"\"\"",
-				"beginCaptures":
-				{
-					"0":
-					{
-						"name": "punctuation.definition.string.begin.niva"
-					}
-				},
-				"patterns": [
-				{
-					"match": "\\\\\\\\|\\\\u[0-9A-Fa-f]{4}",
-					"name": "constant.character.escape.niva"
-				}],
-				"endCaptures":
-				{
-					"0":
-					{
-						"name": "punctuation.definition.string.end.niva"
-					}
-				},
-				"name": "string.quoted.triple.niva"
-			},
-			{
-				"begin": "\\b(raw)(\"\"\")",
-				"end": "(\"\"\")(?!\")|\\$\n|(\\$[^\\$\"_{A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}])",
-				"beginCaptures":
-				{
-					"1":
-					{
-						"name": "keyword.interpolation.niva"
-					},
-					"2":
-					{
-						"name": "string.quoted.triple.interpolated.niva punctuation.definition.string.begin.niva"
-					}
-				},
-				"patterns": [
-				{
-					"match": "\\$[\\$\"]",
-					"name": "constant.character.escape.niva"
-				},
-				{
-					"include": "#string-interpolation"
-				},
-				{
-					"match": ".",
-					"name": "string.quoted.triple.interpolated.niva"
-				}],
-				"endCaptures":
-				{
-					"1":
-					{
-						"name": "string.quoted.triple.interpolated.niva punctuation.definition.string.end.niva"
-					},
-					"2":
-					{
-						"name": "invalid.illegal.unrecognized-string-escape.niva"
-					}
-				}
-			},
-			{
-				"begin": "\\b((?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?))(\"\"\")",
-				"end": "(\"\"\")(?!\")|\\$\n|(\\$[^\\$\"_{A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}])",
-				"beginCaptures":
-				{
-					"1":
-					{
-						"name": "keyword.interpolation.niva"
-					},
-					"2":
-					{
-						"name": "string.quoted.triple.interpolated.niva punctuation.definition.string.begin.niva"
-					}
-				},
-				"patterns": [
-				{
-					"include": "#string-interpolation"
-				},
-				{
-					"match": "\\\\\\\\|\\\\u[0-9A-Fa-f]{4}",
-					"name": "constant.character.escape.niva"
-				},
-				{
-					"match": ".",
-					"name": "string.quoted.triple.interpolated.niva"
-				}],
-				"endCaptures":
-				{
-					"1":
-					{
-						"name": "string.quoted.triple.interpolated.niva punctuation.definition.string.end.niva"
-					},
-					"2":
-					{
-						"name": "invalid.illegal.unrecognized-string-escape.niva"
-					}
-				}
-			},
-			{
-				"end": "\"",
-				"begin": "\"",
-				"beginCaptures":
-				{
-					"0":
-					{
-						"name": "punctuation.definition.string.begin.niva"
-					}
-				},
-				"patterns": [
-				{
-					"match": "\\\\(?:[btnfr\\\\\"']|[0-7]{1,3}|u[0-9A-Fa-f]{4})",
-					"name": "constant.character.escape.niva"
-				},
-				{
-					"match": "\\\\.",
-					"name": "invalid.illegal.unrecognized-string-escape.niva"
-				}],
-				"endCaptures":
-				{
-					"0":
-					{
-						"name": "punctuation.definition.string.end.niva"
-					}
-				},
-				"name": "string.quoted.double.niva"
-			},
-			{
-				"begin": "\\b(raw)(\")",
-				"end": "(\")|\\$\n|(\\$[^\\$\"_{A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}])",
-				"beginCaptures":
-				{
-					"1":
-					{
-						"name": "keyword.interpolation.niva"
-					},
-					"2":
-					{
-						"name": "string.quoted.double.interpolated.niva punctuation.definition.string.begin.niva"
-					}
-				},
-				"patterns": [
-				{
-					"match": "\\$[\\$\"]",
-					"name": "constant.character.escape.niva"
-				},
-				{
-					"include": "#string-interpolation"
-				},
-				{
-					"match": ".",
-					"name": "string.quoted.double.interpolated.niva"
-				}],
-				"endCaptures":
-				{
-					"1":
-					{
-						"name": "string.quoted.double.interpolated.niva punctuation.definition.string.end.niva"
-					},
-					"2":
-					{
-						"name": "invalid.illegal.unrecognized-string-escape.niva"
-					}
-				}
-			},
-			{
-				"begin": "\\b((?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?))(\")",
-				"end": "(\")|\\$\n|(\\$[^\\$\"_{A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}])",
-				"beginCaptures":
-				{
-					"1":
-					{
-						"name": "keyword.interpolation.niva"
-					},
-					"2":
-					{
-						"name": "string.quoted.double.interpolated.niva punctuation.definition.string.begin.niva"
-					}
-				},
-				"patterns": [
-				{
-					"match": "\\$[\\$\"]",
-					"name": "constant.character.escape.niva"
-				},
-				{
-					"include": "#string-interpolation"
-				},
-				{
-					"match": "\\\\(?:[btnfr\\\\\"']|[0-7]{1,3}|u[0-9A-Fa-f]{4})",
-					"name": "constant.character.escape.niva"
-				},
-				{
-					"match": "\\\\.",
-					"name": "invalid.illegal.unrecognized-string-escape.niva"
-				},
-				{
-					"match": ".",
-					"name": "string.quoted.double.interpolated.niva"
-				}],
-				"endCaptures":
-				{
-					"1":
-					{
-						"name": "string.quoted.double.interpolated.niva punctuation.definition.string.end.niva"
-					},
-					"2":
-					{
-						"name": "invalid.illegal.unrecognized-string-escape.niva"
-					}
-				}
-			}]
-		},
-		"using":
-		{
-			"patterns": [
-			{
-				"match": "(?<=\\()\\s*(using)\\s",
-				"captures":
-				{
-					"1":
-					{
-						"name": "keyword.declaration.niva"
-					}
-				}
-			}]
-		},
-		"string-interpolation":
-		{
-			"patterns": [
-			{
-				"name": "constant.character.escape.interpolation.niva",
-				"match": "\\$\\$"
-			},
-			{
-				"name": "meta.template.expression.niva",
-				"match": "(\\$)([A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\p{Lo}\\p{Nl}\\p{Ll}0-9]*)",
-				"captures":
-				{
-					"1":
-					{
-						"name": "punctuation.definition.template-expression.begin.niva"
-					}
-				}
-			},
-			{
-				"name": "meta.template.expression.niva",
-				"begin": "\\$\\{",
-				"beginCaptures":
-				{
-					"0":
-					{
-						"name": "punctuation.definition.template-expression.begin.niva"
-					}
-				},
-				"end": "\\}",
-				"endCaptures":
-				{
-					"0":
-					{
-						"name": "punctuation.definition.template-expression.end.niva"
-					}
-				},
-				"patterns": [
-				{
-					"include": "#code"
-				}],
-				"contentName": "meta.embedded.line.niva"
-			}]
-		},
-		"xml-entity":
-		{
-			"match": "(&)([:a-zA-Z_][:a-zA-Z0-9_.-]*|#[0-9]+|#x[0-9a-fA-F]+)(;)",
-			"captures":
-			{
-				"1":
-				{
-					"name": "punctuation.definition.constant.xml"
-				},
-				"3":
-				{
-					"name": "punctuation.definition.constant.xml"
-				}
-			},
-			"name": "constant.character.entity.xml"
-		},
-		"xml-singlequotedString":
-		{
-			"end": "'",
-			"begin": "'",
-			"beginCaptures":
-			{
-				"0":
-				{
-					"name": "punctuation.definition.string.begin.xml"
-				}
-			},
-			"patterns": [
-			{
-				"include": "#xml-entity"
-			}],
-			"endCaptures":
-			{
-				"0":
-				{
-					"name": "punctuation.definition.string.end.xml"
-				}
-			},
-			"name": "string.quoted.single.xml"
-		},
-		"meta-colons":
-		{
-			"patterns": [
-			{
-				"match": "(?<!:):(?!:)",
-				"name": "meta.colon.niva"
-			}],
-			"comment": "For themes: Matching type colons"
-		},
-		"keywords":
-		{
-			"patterns": [
-			{
-				"match": "\\b(return|throw)\\b",
-				"name": "keyword.control.flow.jump.niva"
-			},
-			{
-				"match": "\\b(classOf|isInstanceOf|asInstanceOf)\\b",
-				"name": "support.function.type-of.niva"
-			},
-			{
-				"match": "\\b(else|if|then|do|while|for|yield|match|case)\\b",
-				"name": "keyword.control.flow.niva"
-			},
-			{
-				"match": "^\\s*(end)\\s+(if|while|for|match)(?=\\s*(//.*|/\\*(?!.*\\*/\\s*\\S.*).*)?$)",
-				"name": "keyword.control.flow.end.niva"
-			},
-			{
-				"match": "^\\s*(end)\\s+(val)(?=\\s*(//.*|/\\*(?!.*\\*/\\s*\\S.*).*)?$)",
-				"name": "keyword.declaration.stable.end.niva"
-			},
-			{
-				"match": "^\\s*(end)\\s+(var)(?=\\s*(//.*|/\\*(?!.*\\*/\\s*\\S.*).*)?$)",
-				"name": "keyword.declaration.volatile.end.niva"
-			},
-			{
-				"match": "^\\s*(end)\\s+(?:(new|extension)|([A-Z\\p{Lt}\\p{Lu}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?))(?=\\s*(//.*|/\\*(?!.*\\*/\\s*\\S.*).*)?$)",
-				"captures":
-				{
-					"1":
-					{
-						"name": "keyword.declaration.end.niva"
-					},
-					"2":
-					{
-						"name": "keyword.declaration.end.niva"
-					},
-					"3":
-					{
-						"name": "entity.name.type.declaration"
-					}
-				}
-			},
-			{
-				"match": "\\b(catch|finally|try)\\b",
-				"name": "keyword.control.exception.niva"
-			},
-			{
-				"match": "^\\s*(end)\\s+(try)(?=\\s*(//.*|/\\*(?!.*\\*/\\s*\\S.*).*)?$)",
-				"name": "keyword.control.exception.end.niva"
-			},
-			{
-				"match": "^\\s*(end)\\s+(`[^`]+`|(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+))?(?=\\s*(//.*|/\\*(?!.*\\*/\\s*\\S.*).*)?$)",
-				"captures":
-				{
-					"1":
-					{
-						"name": "keyword.declaration.end.niva"
-					},
-					"2":
-					{
-						"name": "entity.name.declaration"
-					}
-				}
-			},
-			{
-				"match": "(==?|!=|<=|>=|<>|<|>)",
-				"name": "keyword.operator.comparison.niva"
-			},
-			{
-				"match": "(\\-|\\+|\\*|/(?![/*])|%|~)",
-				"name": "keyword.operator.arithmetic.niva"
-			},
-			{
-				"match": "(?<![!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]|_)(!|&&|\\|\\|)(?![!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}])",
-				"name": "keyword.operator.logical.niva"
-			},
-			{
-				"match": "(<-|←|->|→|=>|⇒|\\?|\\:+|@|\\|)+",
-				"name": "keyword.operator.niva"
-			}]
-		},
-		"singleton-type":
-		{
-			"match": "\\.(type)(?![A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[0-9])",
-			"captures":
-			{
-				"1":
-				{
-					"name": "keyword.type.niva"
-				}
-			}
-		},
-		"inline":
-		{
-			"patterns": [
-			{
-				"match": "\\b(inline)(?=\\s+((?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)|`[^`]+`)\\s*:)",
-				"name": "storage.modifier.other"
-			},
-			{
-				"match": "\\b(inline)\\b(?=(?:.(?!\\b(?:val|def|given)\\b))*\\b(if|match)\\b)",
-				"name": "keyword.control.flow.niva"
-			}]
-		},
-		"niva-quoted-or-symbol":
-		{
-			"patterns": [
-			{
-				"match": "(')((?>(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)))(?!')",
-				"captures":
-				{
-					"1":
-					{
-						"name": "keyword.control.flow.staging.niva constant.other.symbol.niva"
-					},
-					"2":
-					{
-						"name": "constant.other.symbol.niva"
-					}
-				}
-			},
-			{
-				"match": "'(?=\\s*\\{(?!'))",
-				"name": "keyword.control.flow.staging.niva"
-			},
-			{
-				"match": "'(?=\\s*\\[(?!'))",
-				"name": "keyword.control.flow.staging.niva"
-			},
-			{
-				"match": "\\$(?=\\s*\\{)",
-				"name": "keyword.control.flow.staging.niva"
-			}]
-		},
-		"xml-doublequotedString":
-		{
-			"end": "\"",
-			"begin": "\"",
-			"beginCaptures":
-			{
-				"0":
-				{
-					"name": "punctuation.definition.string.begin.xml"
-				}
-			},
-			"patterns": [
-			{
-				"include": "#xml-entity"
-			}],
-			"endCaptures":
-			{
-				"0":
-				{
-					"name": "punctuation.definition.string.end.xml"
-				}
-			},
-			"name": "string.quoted.double.xml"
-		},
-		"declarations":
-		{
-			"patterns": [
-			{
-				"match": "\\b(def)\\b\\s*(?!//|/\\*)((?:(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)|`[^`]+`))?",
-				"captures":
-				{
-					"1":
-					{
-						"name": "keyword.declaration.niva"
-					},
-					"2":
-					{
-						"name": "entity.name.function.declaration"
-					}
-				}
-			},
-			{
-				"match": "\\b(trait)\\b\\s*(?!//|/\\*)((?:(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)|`[^`]+`))?",
-				"captures":
-				{
-					"1":
-					{
-						"name": "keyword.declaration.niva"
-					},
-					"2":
-					{
-						"name": "entity.name.class.declaration"
-					}
-				}
-			},
-			{
-				"match": "\\b(?:(case)\\s+)?(class|object|enum)\\b\\s*(?!//|/\\*)((?:(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)|`[^`]+`))?",
-				"captures":
-				{
-					"1":
-					{
-						"name": "keyword.declaration.niva"
-					},
-					"2":
-					{
-						"name": "keyword.declaration.niva"
-					},
-					"3":
-					{
-						"name": "entity.name.class.declaration"
-					}
-				}
-			},
-			{
-				"match": "(?<!\\.)\\b(type)\\b\\s*(?!//|/\\*)((?:(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)|`[^`]+`))?",
-				"captures":
-				{
-					"1":
-					{
-						"name": "keyword.declaration.niva"
-					},
-					"2":
-					{
-						"name": "entity.name.type.declaration"
-					}
-				}
-			},
-			{
-				"match": "\\b(?:(val)|(var))\\b\\s*(?!//|/\\*)(?=(?:(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)|`[^`]+`)?\\()",
-				"captures":
-				{
-					"1":
-					{
-						"name": "keyword.declaration.stable.niva"
-					},
-					"2":
-					{
-						"name": "keyword.declaration.volatile.niva"
-					}
-				}
-			},
-			{
-				"match": "\\b(val)\\b\\s*(?!//|/\\*)((?:(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)|`[^`]+`)(?:\\s*,\\s*(?:(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)|`[^`]+`))*)?",
-				"captures":
-				{
-					"1":
-					{
-						"name": "keyword.declaration.stable.niva"
-					},
-					"2":
-					{
-						"name": "variable.stable.declaration.niva"
-					}
-				}
-			},
-			{
-				"match": "\\b(var)\\b\\s*(?!//|/\\*)((?:(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)|`[^`]+`)(?:\\s*,\\s*(?:(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)|`[^`]+`))*)?",
-				"captures":
-				{
-					"1":
-					{
-						"name": "keyword.declaration.volatile.niva"
-					},
-					"2":
-					{
-						"name": "variable.volatile.declaration.niva"
-					}
-				}
-			},
-			{
-				"match": "\\b(package)\\s+(object)\\b\\s*(?!//|/\\*)((?:(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)|`[^`]+`))?",
-				"captures":
-				{
-					"1":
-					{
-						"name": "keyword.other.scoping.niva"
-					},
-					"2":
-					{
-						"name": "keyword.declaration.niva"
-					},
-					"3":
-					{
-						"name": "entity.name.class.declaration"
-					}
-				}
-			},
-			{
-				"end": "(?<=[\\n;])",
-				"begin": "\\b(package)\\s+",
-				"beginCaptures":
-				{
-					"1":
-					{
-						"name": "keyword.other.import.niva"
-					}
-				},
-				"patterns": [
-				{
-					"include": "#comments"
-				},
-				{
-					"match": "(`[^`]+`|(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+))",
-					"name": "entity.name.package.niva"
-				},
-				{
-					"match": "\\.",
-					"name": "punctuation.definition.package"
-				}],
-				"name": "meta.package.niva"
-			},
-			{
-				"match": "\\b(given)\\b\\s*([_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|`[^`]+`)?",
-				"captures":
-				{
-					"1":
-					{
-						"name": "keyword.declaration.niva"
-					},
-					"2":
-					{
-						"name": "entity.name.given.declaration"
-					}
-				}
-			}]
-		},
-		"char-literal":
-		{
-			"end": "'|$",
-			"begin": "'",
-			"beginCaptures":
-			{
-				"0":
-				{
-					"name": "punctuation.definition.character.begin.niva"
-				}
-			},
-			"patterns": [
-			{
-				"match": "\\\\(?:[btnfr\\\\\"']|[0-7]{1,3}|u[0-9A-Fa-f]{4})",
-				"name": "constant.character.escape.niva"
-			},
-			{
-				"match": "\\\\.",
-				"name": "invalid.illegal.unrecognized-character-escape.niva"
-			},
-			{
-				"match": "[^']{2,}",
-				"name": "invalid.illegal.character-literal-too-long"
-			},
-			{
-				"match": "(?<!')[^']",
-				"name": "invalid.illegal.character-literal-too-long"
-			}],
-			"endCaptures":
-			{
-				"0":
-				{
-					"name": "punctuation.definition.character.end.niva"
-				}
-			},
-			"name": "string.quoted.other constant.character.literal.niva"
-		},
-		"initialization":
-		{
-			"match": "\\b(new)\\b",
-			"captures":
-			{
-				"1":
-				{
-					"name": "keyword.declaration.niva"
-				}
-			}
-		},
-		"curly-braces":
-		{
-			"begin": "\\{",
-			"end": "\\}",
-			"beginCaptures":
-			{
-				"0":
-				{
-					"name": "punctuation.section.block.begin.niva"
-				}
-			},
-			"endCaptures":
-			{
-				"0":
-				{
-					"name": "punctuation.section.block.end.niva"
-				}
-			},
-			"patterns": [
-			{
-				"include": "#code"
-			}]
-		},
-		"meta-brackets":
-		{
-			"patterns": [
-			{
-				"match": "\\{",
-				"comment": "The punctuation.section.*.begin is needed for return snippet in source bundle",
-				"name": "punctuation.section.block.begin.niva"
-			},
-			{
-				"match": "\\}",
-				"comment": "The punctuation.section.*.end is needed for return snippet in source bundle",
-				"name": "punctuation.section.block.end.niva"
-			},
-			{
-				"match": "{|}|\\(|\\)|\\[|\\]",
-				"name": "meta.bracket.niva"
-			}],
-			"comment": "For themes: Brackets look nice when colored."
-		},
-		"qualifiedClassName":
-		{
-			"match": "(\\b([A-Z][\\w]*)(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?)",
-			"captures":
-			{
-				"1":
-				{
-					"name": "entity.name.class"
-				}
-			}
-		},
-		"backQuotedVariable":
-		{
-			"match": "`[^`]+`"
-		},
-		"storage-modifiers":
-		{
-			"patterns": [
-			{
-				"match": "\\b(private\\[\\S+\\]|protected\\[\\S+\\]|private|protected)\\b",
-				"name": "storage.modifier.access"
-			},
-			{
-				"match": "\\b(synchronized|@volatile|abstract|final|lazy|sealed|implicit|override|@transient|@native)\\b",
-				"name": "storage.modifier.other"
-			},
-			{
-				"match": "(?<=^|\\s)\\b(transparent|opaque|infix|open|inline)\\b(?=[a-z\\s]*\\b(def|val|var|given|type|class|trait|object|enum)\\b)",
-				"name": "storage.modifier.other"
-			}]
-		},
-		"meta-bounds":
-		{
-			"match": "<%|=:=|<:<|<%<|>:|<:",
-			"comment": "For themes: Matching view bounds",
-			"name": "meta.bounds.niva"
-		},
-		"using-directive":
-		{
-			"end": "\\n",
-			"begin": "^\\s*(//>)\\s*(using)[^\\S\\n]+(?:(\\S+))?",
-			"beginCaptures":
-			{
-				"1":
-				{
-					"name": "punctuation.definition.comment.niva"
-				},
-				"2":
-				{
-					"name": "keyword.other.import.niva"
-				},
-				"3":
-				{
-					"patterns": [
-					{
-						"match": "[A-Z\\p{Lt}\\p{Lu}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|`[^`]+`|(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)",
-						"name": "entity.name.import.niva"
-					},
-					{
-						"match": "\\.",
-						"name": "punctuation.definition.import"
-					}]
-				}
-			},
-			"patterns": [
-			{
-				"include": "#constants"
-			},
-			{
-				"include": "#strings"
-			},
-			{
-				"match": "[^\\s,]+",
-				"name": "string.quoted.double.niva"
-			}],
-			"name": "comment.line.shebang.niva"
-		},
-		"comments":
-		{
-			"patterns": [
-			{
-				"include": "#block-comments"
-			},
-			{
-				"end": "(?!\\G)",
-				"begin": "(^[ \\t]+)?(?=//)",
-				"beginCaptures":
-				{
-					"1":
-					{
-						"name": "punctuation.whitespace.comment.leading.niva"
-					}
-				},
-				"patterns": [
-				{
-					"end": "\\n",
-					"begin": "//",
-					"beginCaptures":
-					{
-						"0":
-						{
-							"name": "punctuation.definition.comment.niva"
-						}
-					},
-					"name": "comment.line.double-slash.niva"
-				}]
-			}]
-		},
-		"block-comments":
-		{
-			"patterns": [
-			{
-				"match": "/\\*\\*/",
-				"captures":
-				{
-					"0":
-					{
-						"name": "punctuation.definition.comment.niva"
-					}
-				},
-				"name": "comment.block.empty.niva"
-			},
-			{
-				"end": "\\*/",
-				"begin": "^\\s*(/\\*\\*)(?!/)",
-				"beginCaptures":
-				{
-					"1":
-					{
-						"name": "punctuation.definition.comment.niva"
-					}
-				},
-				"patterns": [
-				{
-					"match": "(@param)\\s+(\\S+)",
-					"captures":
-					{
-						"1":
-						{
-							"name": "keyword.other.documentation.nivadoc.niva"
-						},
-						"2":
-						{
-							"name": "variable.parameter.niva"
-						}
-					}
-				},
-				{
-					"match": "(@(?:tparam|throws))\\s+(\\S+)",
-					"captures":
-					{
-						"1":
-						{
-							"name": "keyword.other.documentation.nivadoc.niva"
-						},
-						"2":
-						{
-							"name": "entity.name.class"
-						}
-					}
-				},
-				{
-					"match": "@(return|see|note|example|constructor|usecase|author|version|since|todo|deprecated|migration|define|inheritdoc)\\b",
-					"name": "keyword.other.documentation.nivadoc.niva"
-				},
-				{
-					"match": "(\\[\\[)([^\\]]+)(\\]\\])",
-					"captures":
-					{
-						"1":
-						{
-							"name": "punctuation.definition.documentation.link.niva"
-						},
-						"2":
-						{
-							"name": "string.other.link.title.markdown"
-						},
-						"3":
-						{
-							"name": "punctuation.definition.documentation.link.niva"
-						}
-					}
-				},
-				{
-					"include": "#block-comments"
-				}],
-				"endCaptures":
-				{
-					"0":
-					{
-						"name": "punctuation.definition.comment.niva"
-					}
-				},
-				"name": "comment.block.documentation.niva"
-			},
-			{
-				"end": "\\*/",
-				"begin": "/\\*",
-				"captures":
-				{
-					"0":
-					{
-						"name": "punctuation.definition.comment.niva"
-					}
-				},
-				"patterns": [
-				{
-					"include": "#block-comments"
-				}],
-				"name": "comment.block.niva"
-			}]
-		},
-		"xml-embedded-content":
-		{
-			"patterns": [
-			{
-				"end": "}",
-				"begin": "{",
-				"patterns": [
-				{
-					"include": "#code"
-				}],
-				"captures":
-				{
-					"0":
-					{
-						"name": "meta.bracket.niva"
-					}
-				},
-				"name": "meta.source.embedded.niva"
-			},
-			{
-				"match": " (?:([-_a-zA-Z0-9]+)((:)))?([_a-zA-Z-]+)=",
-				"captures":
-				{
-					"1":
-					{
-						"name": "entity.other.attribute-name.namespace.xml"
-					},
-					"2":
-					{
-						"name": "entity.other.attribute-name.xml"
-					},
-					"3":
-					{
-						"name": "punctuation.separator.namespace.xml"
-					},
-					"4":
-					{
-						"name": "entity.other.attribute-name.localname.xml"
-					}
-				}
-			},
-			{
-				"include": "#xml-doublequotedString"
-			},
-			{
-				"include": "#xml-singlequotedString"
-			}]
-		},
-		"inheritance":
-		{
-			"patterns": [
-			{
-				"match": "\\b(extends|with|derives)\\b\\s*([A-Z\\p{Lt}\\p{Lu}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|`[^`]+`|(?=\\([^\\)]+=>)|(?=(?:[A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?|[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+))|(?=\"))?",
-				"captures":
-				{
-					"1":
-					{
-						"name": "keyword.declaration.niva"
-					},
-					"2":
-					{
-						"name": "entity.name.class"
-					}
-				}
-			}]
-		},
-		"extension":
-		{
-			"patterns": [
-			{
-				"match": "^\\s*(extension)\\s+(?=[\\[\\(])",
-				"captures":
-				{
-					"1":
-					{
-						"name": "keyword.declaration.niva"
-					}
-				}
-			}]
-		},
-		"parameter-list":
-		{
-			"patterns": [
-			{
-				"match": "(?<=[^\\._$a-zA-Z0-9])(`[^`]+`|[_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}][A-Z\\p{Lt}\\p{Lu}_a-z\\$\\p{Lo}\\p{Nl}\\p{Ll}0-9]*(?:(?<=_)[!#%&*+\\-\\/:<>=?@^|~\\p{Sm}\\p{So}]+)?)\\s*(:)\\s+",
-				"captures":
-				{
-					"1":
-					{
-						"name": "variable.parameter.niva"
-					},
-					"2":
-					{
-						"name": "meta.colon.niva"
-					}
-				}
-			}]
-		},
-		"xml-literal":
-		{
-			"patterns": [
-			{
-				"end": "(>(<))/(?:([-_a-zA-Z0-9]+)((:)))?([-_a-zA-Z0-9:]*[_a-zA-Z0-9])(>)",
-				"begin": "(<)((?:([_a-zA-Z0-9][_a-zA-Z0-9]*)((:)))?([_a-zA-Z0-9][-_a-zA-Z0-9:]*))(?=(\\s[^>]*)?></\\2>)",
-				"beginCaptures":
-				{
-					"1":
-					{
-						"name": "punctuation.definition.tag.xml"
-					},
-					"3":
-					{
-						"name": "entity.name.tag.namespace.xml"
-					},
-					"4":
-					{
-						"name": "entity.name.tag.xml"
-					},
-					"5":
-					{
-						"name": "punctuation.separator.namespace.xml"
-					},
-					"6":
-					{
-						"name": "entity.name.tag.localname.xml"
-					}
-				},
-				"patterns": [
-				{
-					"include": "#xml-embedded-content"
-				}],
-				"comment": "We do not allow a tag name to start with a - since this would likely conflict with the <- operator. This is not very common for tag names anyway.  Also code such as -- if (val <val2 || val> val3) will falsly be recognized as an xml tag.  The solution is to put a space on either side of the comparison operator",
-				"endCaptures":
-				{
-					"1":
-					{
-						"name": "punctuation.definition.tag.xml"
-					},
-					"2":
-					{
-						"name": "meta.scope.between-tag-pair.xml"
-					},
-					"3":
-					{
-						"name": "entity.name.tag.namespace.xml"
-					},
-					"4":
-					{
-						"name": "entity.name.tag.xml"
-					},
-					"5":
-					{
-						"name": "punctuation.separator.namespace.xml"
-					},
-					"6":
-					{
-						"name": "entity.name.tag.localname.xml"
-					},
-					"7":
-					{
-						"name": "punctuation.definition.tag.xml"
-					}
-				},
-				"name": "meta.tag.no-content.xml"
-			},
-			{
-				"end": "(/?>)",
-				"begin": "(</?)(?:([_a-zA-Z0-9][-_a-zA-Z0-9]*)((:)))?([_a-zA-Z0-9][-_a-zA-Z0-9:]*)(?=[^>]*?>)",
-				"patterns": [
-				{
-					"include": "#xml-embedded-content"
-				}],
-				"captures":
-				{
-					"1":
-					{
-						"name": "punctuation.definition.tag.xml"
-					},
-					"2":
-					{
-						"name": "entity.name.tag.namespace.xml"
-					},
-					"3":
-					{
-						"name": "entity.name.tag.xml"
-					},
-					"4":
-					{
-						"name": "punctuation.separator.namespace.xml"
-					},
-					"5":
-					{
-						"name": "entity.name.tag.localname.xml"
-					}
-				},
-				"name": "meta.tag.xml"
-			},
-			{
-				"include": "#xml-entity"
-			}]
-		}
-	},
-	"uuid": "158C0929-299A-40C8-8D89-316BE0C446E8",
-	"patterns": [
-	{
-		"include": "#code"
-	}],
-	"name": "Niva",
-	"scopeName": "source.niva"
+  "name": "Niva",
+  "patterns": [
+    {
+      "include": "#type-assignment"
+    },
+    {
+      "include": "#comments"
+    },
+
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#string"
+    },
+    {
+      "include": "#string-multiline"
+    },
+    {
+      "include": "#character"
+    },
+    {
+      "include": "#constant"
+    },
+    {
+      "include": "#entity"
+    }
+  ],
+  "repository": {
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.niva",
+          "match": "\\b(type|union|mut|\\||=>|\\|=>)\\b"
+        },
+        {
+          "name": "keyword.operator.arrow.niva",
+          "match": "(->)"
+        },
+        {
+          "name": "keyword.operator.pipe.niva",
+          "match": "\\|>"
+        },
+        {
+          "name": "keyword.operator.splat.niva",
+          "match": "\\.\\."
+        },
+        {
+          "name": "keyword.operator.comparison.int.niva",
+          "match": "(<=|>=|==|!=|<|>)"
+        },
+        {
+          "name": "keyword.operator.logical.niva",
+          "match": "(&&|\\|\\||\\|=>|=>|\\|)"
+        },
+        {
+          "name": "keyword.operator.other.niva",
+          "match": "\\|"
+        },
+        {
+          "name": "keyword.operator.arithmetic.int.niva",
+          "match": "(\\+|\\-|/|\\*|%)"
+        },
+        {
+          "name": "keyword.operator.assignment.niva",
+          "match": "="
+        },
+
+        {
+          "comment": "Fake conditionals. Smalltalk Methods.",
+          "match": "ifCurtailed:|ifTrue:|ifFalse:|whileFalse:|whileTrue:|ifNull:|ifNotNull:",
+          "name": "keyword.control.conditionals.pharo"
+        }
+      ]
+    },
+    "type-assignment": {
+      "match": "::[A-Z][a-zA-Z]*",
+      "name": "entity.name.function.reference.niva"
+    },
+    "string": {
+      "begin": "(?<!\")\"(?!\")",
+      "end": "\"",
+      "name": "string.quoted.double.niva",
+      "patterns": [
+        {
+          "match": "\\\\.",
+          "name": "constant.character.escape.niva"
+        },
+        {
+          "include": "#string-escape-simple"
+        },
+        {
+          "include": "#string-escape-bracketed"
+        }
+      ]
+    },
+    "string-empty": {
+      "match": "(?<!\")\"\"(?!\")",
+      "name": "string.quoted.double.niva"
+    },
+    "string-escape-simple": {
+      "match": "(?<!\\\\)\\$\\w+\\b",
+      "name": "variable.string-escape.niva"
+    },
+    "string-escape-bracketed": {
+      "begin": "(?<!\\\\)(\\$\\{)",
+      "end": "(\\})",
+      "name": "meta.template.expression.niva",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.template-expression.begin"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.template-expression.end"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#code"
+        }
+      ]
+    },
+    "string-multiline": {
+      "begin": "\"\"\"",
+      "end": "\"\"\"",
+      "name": "string.quoted.double.niva",
+      "patterns": [
+        {
+          "match": "\\\\.",
+          "name": "constant.character.escape.niva"
+        },
+        {
+          "include": "#string-escape-simple"
+        },
+        {
+          "include": "#string-escape-bracketed"
+        }
+      ]
+    },
+    "character": {
+      "begin": "'",
+      "end": "'",
+      "name": "string.quoted.single.niva",
+      "patterns": [
+        {
+          "match": "\\\\.",
+          "name": "constant.character.escape.niva"
+        }
+      ]
+    },
+
+
+    "comments": {
+      "patterns": [
+        {
+          "include": "#comment-line"
+        },
+        {
+          "include": "#comment-block"
+        }
+      ]
+    },
+    "comment-line": {
+      "begin": "//",
+      "end": "$",
+      "name": "comment.line.double-slash.niva"
+    },
+    "comment-block": {
+      "begin": "/\\*(?!\\*)",
+      "end": "\\*/",
+      "name": "comment.block.niva"
+    },
+
+
+    "constant": {
+      "patterns": [
+        {
+          "include": "#binary_number"
+        },
+        {
+          "include": "#octal_number"
+        },
+        {
+          "include": "#hexadecimal_number"
+        },
+        {
+          "include": "#decimal_number"
+        },
+        {
+          "include": "#boolean"
+        },
+        {
+          "name": "entity.name.type.niva",
+          "match": "[[:upper:]][[:word:]]*"
+        }
+      ]
+    },
+    "binary_number": {
+      "name": "constant.numeric.binary.niva",
+      "match": "\\b0b[0-1]+\\b",
+      "patterns": []
+    },
+    "octal_number": {
+      "name": "constant.numeric.octal.niva",
+      "match": "\\b0o[0-7]+\\b",
+      "patterns": []
+    },
+    "decimal_number": {
+      "name": "constant.numeric.decimal.niva",
+      "match": "\\b[[:digit:]][[:digit:]_]*(\\.[[:digit:]]*)?\\b",
+      "patterns": []
+    },
+    "hexadecimal_number": {
+      "name": "constant.numeric.hexadecimal.niva",
+      "match": "\\b0x[[:xdigit:]]+\\b",
+      "patterns": []
+    },
+    "boolean": {
+      "name": "constant.language.boolean.niva",
+      "match": "\\b(true|false)\\b",
+      "patterns": []
+    },
+
+    
+    "entity": {
+      "patterns": [
+
+        {
+          "name": "variable.parameter.niva",
+          "match": "\\b([[:lower:]][[:word:]]*):\\s"
+        },
+        {
+          "name": "entity.name.namespace.niva",
+          "match": "\\b([[:lower:]][[:word:]]*):"
+        }
+      ]
+
+    }
+  },
+  "scopeName": "source.niva"
 }
