@@ -34,6 +34,11 @@
 					"light": "./images/file-light.png",
 					"dark": "./images/file-dark.png"
 				},
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
 			}
 		],
 		"configuration": {
