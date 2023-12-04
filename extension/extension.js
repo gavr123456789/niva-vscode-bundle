@@ -18,6 +18,29 @@ exports.activate = function (context) {
 
     console.log("[Niva-Lint] Initialized.")
 
+
+    class NivaDocumentSymbolProvider {
+        /**
+        * @param {vscode.TextDocument} document
+        */
+        provideDocumentSymbols(
+            document,
+            token // vscode.CancellationToken
+        )
+        // Promise<vscode.DocumentSymbol[]>
+        {
+            return new Promise((resolve, reject) => {
+                        resolve([])
+            })
+        }
+    }
+
+    const providerSymbol = vscode.languages.registerDocumentSymbolProvider(
+        sel,
+        new NivaDocumentSymbolProvider(),
+        { label: 'Niva' }
+    )
+
     /** @implements {HoverProvider} */
     class NivaHoverProvider {
         /**
@@ -40,5 +63,6 @@ exports.activate = function (context) {
 
     context.subscriptions.push(
         providerHover,
+        providerSymbol
     )
 }
