@@ -32,11 +32,11 @@
       "patterns": [
         {
           "name": "keyword.control.niva",
-          "match": "\\b(type|union|mut|\\||=>|\\|=>)\\b"
+          "match": "\\b(type|union|mut)\\b"
         },
         {
           "name": "keyword.operator.arrow.niva",
-          "match": "(->)"
+          "match": "->"
         },
         {
           "name": "keyword.operator.pipe.niva",
@@ -54,10 +54,7 @@
           "name": "keyword.operator.logical.niva",
           "match": "(&&|\\|\\||\\|=>|=>|\\|)"
         },
-        {
-          "name": "keyword.operator.other.niva",
-          "match": "\\|"
-        },
+
         {
           "name": "keyword.operator.arithmetic.int.niva",
           "match": "(\\+|\\-|/|\\*|%)"
