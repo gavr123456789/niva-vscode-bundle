@@ -1,0 +1,19 @@
+{
+	"version": "0.2.1",
+	"publisher": "PeyTy",
+	"engines": {
+		"vscode": "^1.25.0"
+	},
+	"activationEvents": [
+	],
+	"main": "./extension/extension.js",
+	"categories": [
+		"Programming Languages",
+		"Linters"
+	],
+	"contributes": {
+	},
+	"__metadata": {
+		"isPreReleaseVersion": false
+	}
+}
