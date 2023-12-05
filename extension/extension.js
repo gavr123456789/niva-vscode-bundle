@@ -47,6 +47,9 @@ const decorate = (document) => {
         editor => editor.document.uri === document.uri
     )[0]
 
+    // Ignore non-Niva documents
+    if (!document.uri.fsPath.endsWith('.niva')) return
+
     // "Parser"
     const re = /[a-z]+:\s([a-zA-Z]+\s[a-zA-Z]+(\s[a-zA-Z]+)*)(\s|$)/g
     const conditions = /\|\s(.*\s=>\s)/g
@@ -81,7 +84,7 @@ const decorate = (document) => {
 
         // Remove to enable `if` decorations when syntax is settled
         // TODO
-        // continue;
+        continue
 
         // TODO rename
         let conded = false
@@ -120,7 +123,9 @@ exports.activate = function (context) {
     console.log("[Niva-Lint] Initialized.")
 
     // Events
+    workspace.onDidOpenTextDocument(document => decorate(document))
     workspace.onDidChangeTextDocument(documentChange => decorate(documentChange.document))
+    window.onDidChangeActiveTextEditor(editor => decorate(editor.document))
 
     // Basically a pattern to distinguish Niva files
     const selector = { scheme: 'file', language: 'niva' }
