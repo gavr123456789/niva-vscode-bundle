@@ -12,5 +12,12 @@
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "editor.formatOnSave": true,
+    "cSpell.words": [
+        "hexa",
+        "niva",
+        "Niva",
+        "vshexa",
+        "vsix"
+    ],
     "javascript.format.semicolons": "remove"
 }
