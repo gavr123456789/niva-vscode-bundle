@@ -1,3 +1,4 @@
+// PeyTy (c) 2023
 "use strict"
 
 // Used for TypeScript JSDoc @types
@@ -15,12 +16,15 @@ const {
     Hover
 } = require('vscode')
 
+// Node.js features
 const http = require('http')
 const fs = require('fs')
 const path = require('path')
 const url = require('url')
+
+// Decoration styles
 const decorationType = window.createTextEditorDecorationType({
-    textDecorationa: 'underline',
+    // textDecoration: 'underline',
     after: { contentText: ')', color: '#999999' },
     before: { contentText: '(', color: '#999999' },
 })
@@ -34,15 +38,18 @@ const decorationTypeC = window.createTextEditorDecorationType({
 
 const onDidChangeTextDocument = (documentChange) => {
     const document = documentChange.document
+// Draws something OVER the text, does NOT add diagnostics/editable text to the editor
+    // TODO probably line-by-line is faster, also better to update on edited line
     const text = document.getText()
 
-    let diagnostics = []
     const decorationsArray = []
     const decorationsArrayC = []
     const decorationsArrayI = []
     const openEditor = window.visibleTextEditors.filter(
         editor => editor.document.uri === document.uri
     )[0]
+
+    // "Parser"
 
     var re = /[a-z]+:\s([a-zA-Z]+\s[a-zA-Z]+(\s[a-zA-Z]+)*)(\s|$)/g
     var conditions = /\|\s(.*\s=>\s)/g
@@ -54,8 +61,9 @@ const onDidChangeTextDocument = (documentChange) => {
     let match = null
     let cases = false
     for (const line of text.split('\n')) {
-        while ((match = re.exec(line)) != null) {
 
+        // Detect `demo: aaa bbb ccc` and decorate as `demo: (aaa bbb ccc)`
+        while ((match = re.exec(line)) != null) {
             parsed.col = match.index + match[0].length - match[1].length - 1
 
             let errorWordlength = match[1].trim().length
@@ -66,13 +74,18 @@ const onDidChangeTextDocument = (documentChange) => {
             )
 
             decorationsArray.push({
-                range: range //new Range(new Position(line, 1024), new Position(line, 1024))
+                range
             })
         }
 
+        // Remove to enable `if` decorations when syntax is settled
+        // TODO
+        // continue;
+
+        // TODO rename
         let conded = false
         while ((match = conditions.exec(line)) != null) {
-            parsed.col = match.index //+ match[0].length - match[1].length - 1
+            parsed.col = match.index
             conded = true
 
             let errorWordlength = 1 //match[1].length
@@ -84,7 +97,7 @@ const onDidChangeTextDocument = (documentChange) => {
 
             {
                 (cases ? decorationsArrayC : decorationsArrayI).push({
-                    range: range //new Range(new Position(line, 1024), new Position(line, 1024))
+                    range
                 })
             }
         }
@@ -108,8 +121,10 @@ exports.activate = function (context) {
     console.log("[Niva-Lint] Initialized.")
 
     workspace.onDidChangeTextDocument(onDidChangeTextDocument)
+    // Events
 
-    const sel = { scheme: 'file', language: 'niva' }
+    // Basically a pattern to distinguish Niva files
+    const selector = { scheme: 'file', language: 'niva' }
 
     // The command has been defined in the package.json file
     // Now provide the implementation of the command with registerCommand
@@ -121,8 +136,9 @@ exports.activate = function (context) {
     })
     // context.subscriptions.push(disposable);
 
-    const provider2 = vscode.languages.registerCompletionItemProvider(
-        sel,
+    // Local vscode-powered completion
+    const providerLocalCompletion = vscode.languages.registerCompletionItemProvider(
+        selector,
         {
             provideCompletionItems(document, position) {
                 // get all text until the `position` and check if it reads `console.`
@@ -139,14 +155,17 @@ exports.activate = function (context) {
                 ]
             }
         },
+        // TODO use Niva-style trigger
         '.' // triggered whenever a '.' is being typed
     )
 
-    const provider1 = vscode.languages.registerCompletionItemProvider(
-        sel,
+    // Uses language server
+    const providerRemoteCompletion = vscode.languages.registerCompletionItemProvider(
+        selector,
         {
             provideCompletionItems(document, position, token, context) {
                 return new Promise((resolve, reject) => {
+                    // TODO
                     reject()
                 })
             }
@@ -165,13 +184,14 @@ exports.activate = function (context) {
         // Promise<vscode.DocumentSymbol[]>
         {
             return new Promise((resolve, reject) => {
+                // TODO
                 resolve([])
             })
         }
     }
 
     const providerSymbol = vscode.languages.registerDocumentSymbolProvider(
-        sel,
+        selector,
         new NivaDocumentSymbolProvider(),
         { label: 'Niva' }
     )
@@ -186,19 +206,20 @@ exports.activate = function (context) {
             const __word = document.getText(__range)
 
             return new Promise((resolve, reject) => {
+                // TODO
                 reject()
             })
         }
     }
 
     const providerHover = vscode.languages.registerHoverProvider(
-        sel,
+        selector,
         new NivaHoverProvider()
     )
 
     context.subscriptions.push(
-        provider2, // TODO rename
-        provider1, // TODO rename
+        providerLocalCompletion,
+        providerRemoteCompletion,
         providerHover,
         providerSymbol
     )
