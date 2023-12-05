@@ -3,6 +3,14 @@
 // Used for TypeScript JSDoc @types
 const vscode = require('vscode')
 const {
+    window,
+    Range,
+    Diagnostic,
+    DiagnosticSeverity,
+    Position,
+    Uri,
+    ProgressLocation,
+    workspace,
     HoverProvider,
     Hover
 } = require('vscode')
@@ -11,12 +19,95 @@ const http = require('http')
 const fs = require('fs')
 const path = require('path')
 const url = require('url')
+const decorationType = window.createTextEditorDecorationType({
+    textDecorationa: 'underline',
+    after: { contentText: ')', color: '#999999' },
+    before: { contentText: '(', color: '#999999' },
+})
+const decorationTypeN = window.createTextEditorDecorationType({})
+const decorationTypeI = window.createTextEditorDecorationType({
+    before: { contentText: 'if ', color: '#999999' },
+})
+const decorationTypeC = window.createTextEditorDecorationType({
+    before: { contentText: 'case ', color: '#999999' },
+})
+
+const onDidChangeTextDocument = (documentChange) => {
+    const document = documentChange.document
+    const text = document.getText()
+
+    let diagnostics = []
+    const decorationsArray = []
+    const decorationsArrayC = []
+    const decorationsArrayI = []
+    const openEditor = window.visibleTextEditors.filter(
+        editor => editor.document.uri === document.uri
+    )[0]
+
+    var re = /[a-z]+:\s([a-zA-Z]+\s[a-zA-Z]+(\s[a-zA-Z]+)*)(\s|$)/g
+    var conditions = /\|\s(.*\s=>\s)/g
+    var switches = /\|\s/g
+    let parsed = {
+        line: 0, col: 0,
+    }
+
+    let match = null
+    let cases = false
+    for (const line of text.split('\n')) {
+        while ((match = re.exec(line)) != null) {
+
+            parsed.col = match.index + match[0].length - match[1].length - 1
+
+            let errorWordlength = match[1].trim().length
+
+            let range = new Range(
+                parsed.line, parsed.col,
+                parsed.line, parsed.col + errorWordlength
+            )
+
+            decorationsArray.push({
+                range: range //new Range(new Position(line, 1024), new Position(line, 1024))
+            })
+        }
+
+        let conded = false
+        while ((match = conditions.exec(line)) != null) {
+            parsed.col = match.index //+ match[0].length - match[1].length - 1
+            conded = true
+
+            let errorWordlength = 1 //match[1].length
+
+            let range = new Range(
+                parsed.line, parsed.col,
+                parsed.line, parsed.col + errorWordlength
+            )
+
+            {
+                (cases ? decorationsArrayC : decorationsArrayI).push({
+                    range: range //new Range(new Position(line, 1024), new Position(line, 1024))
+                })
+            }
+        }
+
+        if (!conded) while ((match = switches.exec(line)) != null) {
+            cases = true
+        }
+
+        parsed.line++
+    }
+
+    openEditor.setDecorations(decorationType, decorationsArray)
+    openEditor.setDecorations(decorationTypeC, decorationsArrayC)
+    openEditor.setDecorations(decorationTypeI, decorationsArrayI)
+}
 
 exports.activate = function (context) {
     const diagnostics = vscode.languages.createDiagnosticCollection('niva')
     context.subscriptions.push(diagnostics)
 
     console.log("[Niva-Lint] Initialized.")
+
+    workspace.onDidChangeTextDocument(onDidChangeTextDocument)
 
     const sel = { scheme: 'file', language: 'niva' }
 
