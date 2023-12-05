@@ -28,49 +28,50 @@ const decorationType = window.createTextEditorDecorationType({
     after: { contentText: ')', color: '#999999' },
     before: { contentText: '(', color: '#999999' },
 })
-const decorationTypeN = window.createTextEditorDecorationType({})
-const decorationTypeI = window.createTextEditorDecorationType({
+const decorationTypeIf = window.createTextEditorDecorationType({
     before: { contentText: 'if ', color: '#999999' },
 })
-const decorationTypeC = window.createTextEditorDecorationType({
+const decorationTypeCase = window.createTextEditorDecorationType({
     before: { contentText: 'case ', color: '#999999' },
 })
 
-const onDidChangeTextDocument = (documentChange) => {
-    const document = documentChange.document
 // Draws something OVER the text, does NOT add diagnostics/editable text to the editor
+const decorate = (document) => {
     // TODO probably line-by-line is faster, also better to update on edited line
     const text = document.getText()
 
     const decorationsArray = []
-    const decorationsArrayC = []
-    const decorationsArrayI = []
+    const decorationsArrayCase = []
+    const decorationsArrayIf = []
     const openEditor = window.visibleTextEditors.filter(
         editor => editor.document.uri === document.uri
     )[0]
 
     // "Parser"
+    const re = /[a-z]+:\s([a-zA-Z]+\s[a-zA-Z]+(\s[a-zA-Z]+)*)(\s|$)/g
+    const conditions = /\|\s(.*\s=>\s)/g
+    const switches = /\|\s/g
 
-    var re = /[a-z]+:\s([a-zA-Z]+\s[a-zA-Z]+(\s[a-zA-Z]+)*)(\s|$)/g
-    var conditions = /\|\s(.*\s=>\s)/g
-    var switches = /\|\s/g
-    let parsed = {
-        line: 0, col: 0,
+    // TODO make not object
+    const parsed = {
+        line: -1, col: 0,
     }
 
     let match = null
     let cases = false
     for (const line of text.split('\n')) {
+        // Proceed
+        parsed.line++
 
         // Detect `demo: aaa bbb ccc` and decorate as `demo: (aaa bbb ccc)`
         while ((match = re.exec(line)) != null) {
             parsed.col = match.index + match[0].length - match[1].length - 1
 
-            let errorWordlength = match[1].trim().length
+            let wordLength = match[1].trim().length
 
             let range = new Range(
                 parsed.line, parsed.col,
-                parsed.line, parsed.col + errorWordlength
+                parsed.line, parsed.col + wordLength
             )
 
             decorationsArray.push({
@@ -88,15 +89,15 @@ const onDidChangeTextDocument = (documentChange) => {
             parsed.col = match.index
             conded = true
 
-            let errorWordlength = 1 //match[1].length
+            let wordLength = 1
 
             let range = new Range(
                 parsed.line, parsed.col,
-                parsed.line, parsed.col + errorWordlength
+                parsed.line, parsed.col + wordLength
             )
 
             {
-                (cases ? decorationsArrayC : decorationsArrayI).push({
+                (cases ? decorationsArrayCase : decorationsArrayIf).push({
                     range
                 })
             }
@@ -105,13 +106,11 @@ const onDidChangeTextDocument = (documentChange) => {
         if (!conded) while ((match = switches.exec(line)) != null) {
             cases = true
         }
-
-        parsed.line++
     }
 
     openEditor.setDecorations(decorationType, decorationsArray)
-    openEditor.setDecorations(decorationTypeC, decorationsArrayC)
-    openEditor.setDecorations(decorationTypeI, decorationsArrayI)
+    openEditor.setDecorations(decorationTypeCase, decorationsArrayCase)
+    openEditor.setDecorations(decorationTypeIf, decorationsArrayIf)
 }
 
 exports.activate = function (context) {
@@ -120,8 +119,8 @@ exports.activate = function (context) {
 
     console.log("[Niva-Lint] Initialized.")
 
-    workspace.onDidChangeTextDocument(onDidChangeTextDocument)
     // Events
+    workspace.onDidChangeTextDocument(documentChange => decorate(documentChange.document))
 
     // Basically a pattern to distinguish Niva files
     const selector = { scheme: 'file', language: 'niva' }
