@@ -2,14 +2,16 @@
   "name": "Niva",
   "patterns": [
     {
-      "include": "#type-assignment"
-    },
-    {
       "include": "#comments"
     },
-
     {
       "include": "#keywords"
+    },
+    {
+      "include": "#entity"
+    },
+    {
+      "include": "#type-assignment"
     },
     {
       "include": "#string"
@@ -22,9 +24,6 @@
     },
     {
       "include": "#constant"
-    },
-    {
-      "include": "#entity"
     }
   ],
   "repository": {
@@ -32,7 +31,7 @@
       "patterns": [
         {
           "name": "keyword.control.niva",
-          "match": "\\b(type|union|mut)\\b"
+          "match": "\\b(type|union|mut|this)\\b"
         },
         {
           "name": "keyword.operator.arrow.niva",
@@ -52,9 +51,8 @@
         },
         {
           "name": "keyword.operator.logical.niva",
-          "match": "(&&|\\|\\||\\|=>|=>|\\|)"
+          "match": "(\\^|&&|\\|\\||\\|=>|=>|\\|)"
         },
-
         {
           "name": "keyword.operator.arithmetic.int.niva",
           "match": "(\\+|\\-|/|\\*|%)"
@@ -63,7 +61,6 @@
           "name": "keyword.operator.assignment.niva",
           "match": "="
         },
-
         {
           "comment": "Fake conditionals. Smalltalk Methods.",
           "match": "ifCurtailed:|ifTrue:|ifFalse:|whileFalse:|whileTrue:|ifNull:|ifNotNull:",
@@ -148,8 +145,6 @@
         }
       ]
     },
-
-
     "comments": {
       "patterns": [
         {
@@ -170,8 +165,6 @@
       "end": "\\*/",
       "name": "comment.block.niva"
     },
-
-
     "constant": {
       "patterns": [
         {
@@ -220,21 +213,58 @@
       "match": "\\b(true|false)\\b",
       "patterns": []
     },
-
-    
     "entity": {
       "patterns": [
-
         {
-          "name": "variable.parameter.niva",
-          "match": "\\b([[:lower:]][[:word:]]*):\\s"
+          "name": "constant.numeric.decimal.niva",
+          "match": "\\b([[:lower:]][[:word:]]*)(::)",
+          "captures": {
+            "1": {
+              "names": "constant.language.boolean.niva",
+              "name": "keyword.operator.access.dot.niva"
+            },
+            "2": {
+              "name": "string.quoted.single.niva"
+            },
+            "4": {
+              "sname": "entity.name.niva",
+              "name": "keyword.operator.access.dot.niva"
+            },
+            "5": {
+              "sname": "punctuation.period.niva",
+              "name": "keyword.type.variable.niva"
+            }
+          }
         },
         {
-          "name": "entity.name.namespace.niva",
-          "match": "\\b([[:lower:]][[:word:]]*):"
+          "name": "constant.numeric.decimal.niva",
+          "match": "\\b([[:lower:]][[:word:]]*):\\s([a-z_][a-zA-Z_0-9]*\\s)?",
+          "captures": {
+            "1": {
+              "names": "punctuation.period.niva",
+              "name": "keyword.operator.access.dot.niva"
+            },
+            "2": {
+              "sname": "storage.attribute.niva",
+              "ssname": "variable.other.niva",
+              "good_name": "support.type.niva",
+              "name": "entity.name.niva"
+            },
+            "4": {
+              "sname": "entity.name.niva",
+              "name": "keyword.operator.access.dot.niva"
+            },
+            "5": {
+              "sname": "punctuation.period.niva",
+              "name": "keyword.type.variable.niva"
+            }
+          }
+        },
+        {
+          "name": "white.niva",
+          "match": "\\b([[:lower:]][[:word:]]*)"
         }
       ]
-
     }
   },
   "scopeName": "source.niva"
