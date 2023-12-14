@@ -34,24 +34,16 @@
           "match": "\\b(type|union|mut|this)\\b"
         },
         {
-          "name": "keyword.operator.arrow.niva",
-          "match": "->"
-        },
-        {
-          "name": "keyword.operator.pipe.niva",
-          "match": "\\|>"
-        },
-        {
           "name": "keyword.operator.splat.niva",
           "match": "\\.\\."
         },
         {
           "name": "keyword.operator.comparison.int.niva",
-          "match": "(<=|>=|==|!=|<|>)"
+          "match": "(<=|>=|==|!=|<|>|sas)"
         },
         {
           "name": "keyword.operator.logical.niva",
-          "match": "(\\^|&&|\\|\\||\\|=>|=>|\\|)"
+          "match": "(->|\\|>|\\^|&&|\\|\\||\\|=>|=>|\\|)"
         },
         {
           "name": "keyword.operator.arithmetic.int.niva",
@@ -238,26 +230,23 @@
         },
         {
           "name": "constant.numeric.decimal.niva",
-          "match": "\\b([[:lower:]][[:word:]]*):\\s([a-z_][a-zA-Z_0-9]*\\s)?",
+          "match": "\\b([[:lower:]][[:word:]]*)(:)\\s([a-z_][a-zA-Z_0-9]*\\s)?",
           "captures": {
             "1": {
               "names": "punctuation.period.niva",
               "name": "keyword.operator.access.dot.niva"
             },
             "2": {
+              "names": "punctuation.period.niva",
+              "name": "keyword.operator.access.dot.niva"
+            },
+            "3": {
               "sname": "storage.attribute.niva",
               "ssname": "variable.other.niva",
               "good_name": "support.type.niva",
               "name": "entity.name.niva"
-            },
-            "4": {
-              "sname": "entity.name.niva",
-              "name": "keyword.operator.access.dot.niva"
-            },
-            "5": {
-              "sname": "punctuation.period.niva",
-              "name": "keyword.type.variable.niva"
             }
+
           }
         },
         {
