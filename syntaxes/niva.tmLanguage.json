@@ -234,11 +234,11 @@
           "captures": {
             "1": {
               "names": "punctuation.period.niva",
-              "name": "keyword.operator.access.dot.niva"
+              "name": "variable.parameter.niva"
             },
             "2": {
               "names": "punctuation.period.niva",
-              "name": "keyword.operator.access.dot.niva"
+              "name": "variable.parameter.niva"
             },
             "3": {
               "sname": "storage.attribute.niva",
