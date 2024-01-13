@@ -62,7 +62,7 @@ const decorate = (document) => {
 
     let match = null
     let cases = false
-    for (const line of text.split('\n')) {
+    for (const line of text.replaceAll("\n", "\n\r").split('\n')) {
         // Proceed
         parsed.line++
 
@@ -111,9 +111,9 @@ const decorate = (document) => {
         }
     }
 
-    openEditor.setDecorations(decorationType, decorationsArray)
-    openEditor.setDecorations(decorationTypeCase, decorationsArrayCase)
-    openEditor.setDecorations(decorationTypeIf, decorationsArrayIf)
+    //openEditor.setDecorations(decorationType, decorationsArray)
+    //openEditor.setDecorations(decorationTypeCase, decorationsArrayCase)
+    //openEditor.setDecorations(decorationTypeIf, decorationsArrayIf)
 }
 
 exports.activate = function (context) {
