@@ -31,20 +31,21 @@
       "patterns": [
         {
           "name": "keyword.control.niva",
-          "match": "\\b(type|union|mut|this)\\b"
+          "match": "\\b(type|constructor|enum|union|mut|this)\\b"
         },
         {
           "name": "keyword.operator.splat.niva",
           "match": "\\.\\."
         },
         {
-          "name": "keyword.operator.comparison.int.niva",
-          "match": "(<=|>=|==|!=|<|>|sas)"
+          "name": "keyword.operator.logical.niva",
+          "match": "(<-|->|\\|>|\\^|&&|\\|\\||\\|=>|=>|\\|)"
         },
         {
-          "name": "keyword.operator.logical.niva",
-          "match": "(->|\\|>|\\^|&&|\\|\\||\\|=>|=>|\\|)"
+          "name": "keyword.operator.comparison.int.niva",
+          "match": "(<=|>=|==|!=|<|>)"
         },
+    
         {
           "name": "keyword.operator.arithmetic.int.niva",
           "match": "(\\+|\\-|/|\\*|%)"
