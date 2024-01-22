@@ -38,26 +38,30 @@
           "match": "\\.\\."
         },
         {
+          "name": "keyword.operator.comparison.int.niva",
+          "match": "(<=|>=|==|!=|<|>)"
+        },
+        {
           "name": "keyword.operator.logical.niva",
           "match": "(<-|->|\\|>|\\^|&&|\\|\\||\\|=>|=>|\\|)"
         },
         {
           "name": "keyword.operator.comparison.int.niva",
-          "match": "(<=|>=|==|!=|<|>)"
+          "match": "(>\\?|<=|>=|==|!=|<|>)"
         },
-    
+
         {
           "name": "keyword.operator.arithmetic.int.niva",
           "match": "(\\+|\\-|/|\\*|%)"
         },
         {
-          "name": "keyword.operator.assignment.niva",
+          "name": "keyword.niva",
           "match": "="
         },
         {
           "comment": "Fake conditionals. Smalltalk Methods.",
           "match": "ifCurtailed:|ifTrue:|ifFalse:|whileFalse:|whileTrue:|ifNull:|ifNotNull:",
-          "name": "keyword.control.conditionals.pharo"
+          "name": "keyword.control.conditionals.niva"
         }
       ]
     },
@@ -213,11 +217,10 @@
           "match": "\\b([[:lower:]][[:word:]]*)(::)",
           "captures": {
             "1": {
-              "names": "constant.language.boolean.niva",
-              "name": "keyword.operator.access.dot.niva"
+              "name": "object.niva"
             },
             "2": {
-              "name": "string.quoted.single.niva"
+              "name": "entity.name.niva"
             },
             "4": {
               "sname": "entity.name.niva",
@@ -231,6 +234,7 @@
         },
         {
           "name": "constant.numeric.decimal.niva",
+          "match": "\\b([[:lower:]][[:word:]]*)(:)\\s([a-z_][a-zA-Z_0-9]*\\s)?",
           "match": "\\b([[:lower:]][[:word:]]*)(:)\\s([a-z_][a-zA-Z_0-9]*\\s)?",
           "captures": {
             "1": {
