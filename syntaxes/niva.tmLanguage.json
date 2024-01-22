@@ -38,10 +38,6 @@
           "match": "\\.\\."
         },
         {
-          "name": "keyword.operator.comparison.int.niva",
-          "match": "(<=|>=|==|!=|<|>)"
-        },
-        {
           "name": "keyword.operator.logical.niva",
           "match": "(<-|->|\\|>|\\^|&&|\\|\\||\\|=>|=>|\\|)"
         },
@@ -49,7 +45,7 @@
           "name": "keyword.operator.comparison.int.niva",
           "match": "(>\\?|<=|>=|==|!=|<|>)"
         },
-
+    
         {
           "name": "keyword.operator.arithmetic.int.niva",
           "match": "(\\+|\\-|/|\\*|%)"
@@ -235,10 +231,9 @@
         {
           "name": "constant.numeric.decimal.niva",
           "match": "\\b([[:lower:]][[:word:]]*)(:)\\s([a-z_][a-zA-Z_0-9]*\\s)?",
-          "match": "\\b([[:lower:]][[:word:]]*)(:)\\s([a-z_][a-zA-Z_0-9]*\\s)?",
           "captures": {
             "1": {
-              "names": "punctuation.period.niva",
+              "names": "storage.attribute.niva",
               "name": "variable.parameter.niva"
             },
             "2": {
