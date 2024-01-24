@@ -31,7 +31,7 @@
       "patterns": [
         {
           "name": "keyword.control.niva",
-          "match": "\\b(type|constructor|enum|union|mut|this)\\b"
+          "match": "\\b(on|extend|type|constructor|enum|union|mut|this)\\b"
         },
         {
           "name": "keyword.operator.splat.niva",
