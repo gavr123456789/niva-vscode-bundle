@@ -39,13 +39,13 @@
         },
         {
           "name": "keyword.operator.logical.niva",
-          "match": "(<-|->|\\|>|\\^|&&|\\|\\||\\|=>|=>|\\|)"
+          "match": "(;|<-|->|\\|>|\\^|&&|\\|\\||\\|=>|=>|\\|)"
         },
         {
           "name": "keyword.operator.comparison.int.niva",
           "match": "(>\\?|<=|>=|==|!=|<|>)"
         },
-    
+
         {
           "name": "keyword.operator.arithmetic.int.niva",
           "match": "(\\+|\\-|/|\\*|%)"
