@@ -45,7 +45,6 @@
           "name": "keyword.operator.comparison.int.niva",
           "match": "(>\\?|<=|>=|==|!=|<|>)"
         },
-
         {
           "name": "keyword.operator.arithmetic.int.niva",
           "match": "(\\+|\\-|/|\\*|%)"
@@ -202,8 +201,8 @@
       "patterns": []
     },
     "boolean": {
-      "name": "constant.language.boolean.niva",
-      "match": "\\b(true|false)\\b",
+      "name": "constant.language.niva",
+      "match": "\\b(false|true|null)\\b",
       "patterns": []
     },
     "entity": {
@@ -246,7 +245,6 @@
               "good_name": "support.type.niva",
               "name": "entity.name.niva"
             }
-
           }
         },
         {
