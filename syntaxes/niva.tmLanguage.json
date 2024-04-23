@@ -30,8 +30,12 @@
     "keywords": {
       "patterns": [
         {
+          "name": "variable.parameter.niva",
+          "match": "\\b(type|constructor|enum|union|errordomain)\\b"
+        },
+        {
           "name": "keyword.control.niva",
-          "match": "\\b(on|extend|type|constructor|enum|union|mut|this)\\b"
+          "match": "\\b(on|extend|mut|this|!)\\b"
         },
         {
           "name": "keyword.operator.splat.niva",
@@ -39,7 +43,7 @@
         },
         {
           "name": "keyword.operator.logical.niva",
-          "match": "(;|<-|->|\\|>|\\^|&&|\\|\\||\\|=>|=>|\\|)"
+          "match": "(<-|->|\\|>|\\^|&&|\\|\\||\\|=>|=>|\\|)"
         },
         {
           "name": "keyword.operator.comparison.int.niva",
@@ -55,7 +59,7 @@
         },
         {
           "comment": "Fake conditionals. Smalltalk Methods.",
-          "match": "ifCurtailed:|ifTrue:|ifFalse:|whileFalse:|whileTrue:|ifNull:|ifNotNull:",
+          "match": "ifCurtailed:|ifTrue:|ifFalse:|whileFalse:|whileTrue:|ifNull:|ifNotNull:|ifError:",
           "name": "keyword.control.conditionals.niva"
         }
       ]
@@ -201,8 +205,8 @@
       "patterns": []
     },
     "boolean": {
-      "name": "constant.language.niva",
-      "match": "\\b(false|true|null)\\b",
+      "name": "constant.language.boolean.niva",
+      "match": "\\b(true|false)\\b",
       "patterns": []
     },
     "entity": {
@@ -228,16 +232,16 @@
           }
         },
         {
-          "name": "constant.numeric.decimal.niva",
+          "name": "white.niva",
           "match": "\\b([[:lower:]][[:word:]]*)(:)\\s([a-z_][a-zA-Z_0-9]*\\s)?",
           "captures": {
             "1": {
-              "names": "storage.attribute.niva",
-              "name": "variable.parameter.niva"
+              "names": "white.niva",
+              "name": "white.niva"
             },
             "2": {
-              "names": "punctuation.period.niva",
-              "name": "variable.parameter.niva"
+              "names": "white.niva",
+              "name": "white.niva"
             },
             "3": {
               "sname": "storage.attribute.niva",
