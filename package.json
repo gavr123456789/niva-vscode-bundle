@@ -9,12 +9,12 @@
 	"icon": "images/icon.png",
 	"homepage": "https://github.com/gavr123456789/niva-vscode-bundle/blob/master/README.md",
 	"engines": {
-		"vscode": "^1.25.0"
+		"vscode": "^1.67.1"
 	},
 	"activationEvents": [
 		"onLanguage:niva"
 	],
-	"main": "./extension/extension.js",
+	"main": "./src/out/extension.js",
 	"categories": [
 		"Programming Languages",
 		"Linters"
@@ -74,5 +74,20 @@
 		"publisherDisplayName": "PeyTy",
 		"publisherId": "00000000-0000-0000-94b3-5b5ba4c7aece",
 		"isPreReleaseVersion": false
+	},
+
+	"devDependencies": {
+		"@types/node": "^17.0.45",
+		"@types/vscode": "^1.67.0",
+		"@vscode/test-electron": "^2.1.3",
+		"typescript": "^4.6.4"
+	},
+	"dependencies": {
+		"vscode-languageclient": "^8.0.1"
+	},
+	"scripts": {
+		"compile": "tsc -p ./src",
+		"watch": "tsc -w -p ./src",
+		"update-vscode": "node ./node_modules/vscode/bin/install"
 	}
 }
