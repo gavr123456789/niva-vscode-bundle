@@ -12,85 +12,51 @@ let lc: LanguageClient;
 
 let shThatRunsJar = '/home/gavr/Documents/Projects/Fun/lsp/nivals/build/distributions/nivals-1.0-SNAPSHOT/bin/nivals'
 
-let nativePath = '/home/gavr/Documents/Projects/Fun/lsp/nivals/build/distributions/nivals-1.0-SNAPSHOT/lib/nivalsnative'
 
-// function spawnServer() {
-//   let program = "bash"
-//   let args = [
-//     '/home/gavr/Documents/Projects/Fun/lsp/nivals/build/distributions/nivals-1.0-SNAPSHOT/bin/nivals',
-//     '5007'
-//   ]
-
-//   let process = child_process.spawn(program, args)
-
-//   process.stdout.on('data', (data) => {
-//     lc.info(`stdout: ${data}`);
-//   });
-
-//   process.on('error', (err) => {
-//     lc.info(`ERRRORRRR ${err.message}`)
-//     lc.error('Failed to start subprocess' + args[0], null, "force")
-//   });
-// }
-
+let shThatRunsJar_notMy = '/home/gavr/Documents/Projects/Fun/lsp/vscode-extension-samples/lsp-sample/java-server/app/build/install/simpleJavaLanguageServer/bin/simpleJavaLanguageServer'
+let shKotinMy = '/home/gavr/Documents/Projects/Fun/lsp/nivals/build/install/nivals/bin/nivals'
 
 export function activate(context: ExtensionContext) {
 
-  let runEnvironment = { ...process.env };
+  // let runEnvironment = { ...process.env };
 
-  let runExe: Executable = {
-    command: "/home/gavr/.niva/bin/nivalsnative",
-    // args: [runCommand],
-    options: {
-      env: runEnvironment
-      // shell: true
-    },
-    // transport: TransportKind.stdio
-  };
-
-  let runExe2: Executable = {
-    command: shThatRunsJar,
-  };
-
-  // The server is a started as a separate app and listens on port 5007
-  // let connectionInfo = {
-  //   port: 5007
+  // let runExe: Executable = {
+  //   command: "/home/gavr/.niva/bin/nivalsnative",
+  //   // args: [runCommand],
+  //   options: {
+  //     env: runEnvironment
+  //     // shell: true
+  //   },
+  //   // transport: TransportKind.stdio
   // };
-
-  // let serverOptions = () => {
-
-  //   // Connect to language server via socket
-  //   let socket = net.connect(connectionInfo);
-  //   let result: StreamInfo = {
-
-  //     writer: socket,
-  //     reader: socket
-  //   };
-  //   return Promise.resolve(result);
-  // };
-
-  let serverOptions2: ServerOptions = {
-    run: runExe,
-    debug: runExe
-  };
 
   let clientOptions: LanguageClientOptions = {
     documentSelector: ['niva'],
     synchronize: {
-      fileEvents: workspace.createFileSystemWatcher('**/*.niva')
+      // fileEvents: workspace.createFileSystemWatcher('**/*.niva')
+			fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
+
     }
   };
 
 
+  let javaServerOptions: ServerOptions = {
+    run: { command: "sh", args: [shKotinMy] },
+    debug: { command: "sh", args: [shKotinMy] }
+  }
 
   // Create the language client and start the client.
-  lc = new LanguageClient('niva Lang Server', serverOptions2, clientOptions);
+  lc = new LanguageClient(
+    'niva Lang Server',
+    javaServerOptions,
+    clientOptions
+  );
 
-  lc.info("hallo from niva vsc extension");
+  lc.info("hallo from niva vsc extension3");
   lc.info(context.extensionPath);
 
   lc.setTrace(Trace.Verbose);
-  // lc.start();
+  lc.start();
 }
 
 export function deactivate() {

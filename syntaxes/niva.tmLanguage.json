@@ -43,7 +43,7 @@
         },
         {
           "name": "keyword.operator.logical.niva",
-          "match": "(<-|->|\\|>|\\^|&&|\\|\\||\\|=>|=>|\\|)"
+          "match": "(;|<-|->|\\|>|\\^|&&|\\|\\||\\|=>|=>|\\|)"
         },
         {
           "name": "keyword.operator.comparison.int.niva",
