@@ -9,12 +9,7 @@ import path = require('path');
 import child_process = require('child_process');
 
 let lc: LanguageClient;
-
-let shThatRunsJar = '/home/gavr/Documents/Projects/Fun/lsp/nivals/build/distributions/nivals-1.0-SNAPSHOT/bin/nivals'
-
-
-let shThatRunsJar_notMy = '/home/gavr/Documents/Projects/Fun/lsp/vscode-extension-samples/lsp-sample/java-server/app/build/install/simpleJavaLanguageServer/bin/simpleJavaLanguageServer'
-let shKotinMy = '/home/gavr/Documents/Projects/Fun/lsp/nivals/build/install/nivals/bin/nivals'
+let shKotinMy = '/home/gavr/Documents/Projects/Fun/lsp/vaLSe/build/install/nivals/bin/nivals'
 
 export function activate(context: ExtensionContext) {
 
@@ -34,9 +29,11 @@ export function activate(context: ExtensionContext) {
     documentSelector: ['niva'],
     synchronize: {
       // fileEvents: workspace.createFileSystemWatcher('**/*.niva')
-			fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
+			fileEvents: workspace.createFileSystemWatcher('**/.clientrc'),
 
-    }
+
+    },
+    workspaceFolder: workspace.workspaceFolders[0]
   };
 
 
@@ -52,10 +49,12 @@ export function activate(context: ExtensionContext) {
     clientOptions
   );
 
-  lc.info("hallo from niva vsc extension3");
+
+  lc.info("hallo from niva vsc extension4");
+  lc.info("workspace.workspaceFolders = " + workspace.workspaceFolders[0].uri );
   lc.info(context.extensionPath);
 
-  lc.setTrace(Trace.Verbose);
+  // lc.setTrace(Trace.Verbose); // this only throw exception from eclipse
   lc.start();
 }
 

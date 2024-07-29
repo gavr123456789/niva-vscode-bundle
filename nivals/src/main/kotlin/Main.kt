@@ -1,5 +1,6 @@
 package org.example
 
+import frontend.resolver.Resolver
 import org.eclipse.lsp4j.*
 import org.eclipse.lsp4j.jsonrpc.messages.Either
 import org.eclipse.lsp4j.launch.LSPLauncher
@@ -26,7 +27,7 @@ fun main() {
     }
 
 //    val launcher = LSPLauncher.createServerLauncher(server, System.`in`, System.out)
-
+//    val resolver = Resolver()
 
 //    server.connect(launcher.remoteProxy)
 //    launcher.startListening()
@@ -103,7 +104,12 @@ class ExampleTextDocumentService : TextDocumentService {
         item2.detail = "snippetExample details"
         item2.insertText = "snippetExample(){\n  print(\"hello lsp!\")\n}"
 
-        return CompletableFuture.completedFuture(Either.forRight(CompletionList(listOf(item1, item2))))
+        val item3 = CompletionItem("Niva!")
+        item2.data = 4
+        item2.detail = "snippetExample details"
+        item2.insertText = """ "nivals!" echo """
+
+        return CompletableFuture.completedFuture(Either.forRight(CompletionList(listOf(item1, item2, item3))))
     }
 
     override fun didOpen(params: DidOpenTextDocumentParams?) {

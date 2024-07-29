@@ -8,10 +8,12 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
     implementation("org.eclipse.lsp4j:org.eclipse.lsp4j:0.22.0")
+    implementation("com.github.gavr123456789:niva:0.1")
 
     testImplementation(kotlin("test"))
 }

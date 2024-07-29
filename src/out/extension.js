@@ -1,13 +1,10 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deactivate = exports.activate = void 0;
-const vscode_jsonrpc_1 = require("vscode-jsonrpc");
 const vscode_1 = require("vscode");
 const node_1 = require("vscode-languageclient/node");
 let lc;
-let shThatRunsJar = '/home/gavr/Documents/Projects/Fun/lsp/nivals/build/distributions/nivals-1.0-SNAPSHOT/bin/nivals';
-let shThatRunsJar_notMy = '/home/gavr/Documents/Projects/Fun/lsp/vscode-extension-samples/lsp-sample/java-server/app/build/install/simpleJavaLanguageServer/bin/simpleJavaLanguageServer';
-let shKotinMy = '/home/gavr/Documents/Projects/Fun/lsp/nivals/build/install/nivals/bin/nivals';
+let shKotinMy = '/home/gavr/Documents/Projects/Fun/lsp/vaLSe/build/install/nivals/bin/nivals';
 function activate(context) {
     // let runEnvironment = { ...process.env };
     // let runExe: Executable = {
@@ -23,8 +20,9 @@ function activate(context) {
         documentSelector: ['niva'],
         synchronize: {
             // fileEvents: workspace.createFileSystemWatcher('**/*.niva')
-            fileEvents: vscode_1.workspace.createFileSystemWatcher('**/.clientrc')
-        }
+            fileEvents: vscode_1.workspace.createFileSystemWatcher('**/.clientrc'),
+        },
+        workspaceFolder: vscode_1.workspace.workspaceFolders[0]
     };
     let javaServerOptions = {
         run: { command: "sh", args: [shKotinMy] },
@@ -32,9 +30,10 @@ function activate(context) {
     };
     // Create the language client and start the client.
     lc = new node_1.LanguageClient('niva Lang Server', javaServerOptions, clientOptions);
-    lc.info("hallo from niva vsc extension3");
+    lc.info("hallo from niva vsc extension4");
+    lc.info("workspace.workspaceFolders = " + vscode_1.workspace.workspaceFolders[0].uri);
     lc.info(context.extensionPath);
-    lc.setTrace(vscode_jsonrpc_1.Trace.Verbose);
+    // lc.setTrace(Trace.Verbose); // this only throw exception from eclipse
     lc.start();
 }
 exports.activate = activate;

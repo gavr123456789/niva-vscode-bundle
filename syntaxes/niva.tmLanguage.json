@@ -31,7 +31,7 @@
       "patterns": [
         {
           "name": "keyword.control.niva",
-          "match": "\\b(type|constructor|enum|union|errordomain)\\b"
+          "match": "\\b(type|constructor|builder|enum|union|errordomain)\\b"
         },
         {
           "name": "keyword.control.niva",
@@ -143,23 +143,31 @@
     },
     "comments": {
       "patterns": [
+
         {
           "include": "#comment-line"
         },
         {
           "include": "#comment-block"
+        },
+        {
+          "include": "#doc-reference"
         }
       ]
     },
     "comment-line": {
       "begin": "//",
-      "end": "$",
+      "end": "\\n",
       "name": "comment.line.double-slash.niva"
     },
     "comment-block": {
       "begin": "/\\*(?!\\*)",
       "end": "\\*/",
       "name": "comment.block.niva"
+    },
+    "doc-reference": {
+      "match": "@[A-Z][a-zA-Z]*",
+      "name": "entity.name.function.reference.niva"
     },
     "constant": {
       "patterns": [
@@ -222,10 +230,10 @@
               "name": "entity.name.niva"
             },
             "4": {
-                "name": "keyword.operator.access.dot.niva"
+              "name": "keyword.operator.access.dot.niva"
             },
             "5": {
-                "name": "keyword.type.variable.niva"
+              "name": "keyword.type.variable.niva"
             }
           }
         },
@@ -239,7 +247,6 @@
             "2": {
               "name": "variable.parameter.niva"
             }
-
           }
         },
         {
