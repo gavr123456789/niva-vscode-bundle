@@ -20,6 +20,13 @@
 		"Linters"
 	],
 	"contributes": {
+		"commands": [
+			{
+				"command": "niva.install",
+				"title": "Install niva",
+				"category": "Installation"
+			}
+		],
 		"languages": [
 			{
 				"id": "niva",

@@ -26,6 +26,56 @@ export function activate(context: ExtensionContext) {
     workspaceFolder: workspaceFolder
   };
 
+  // https://github.com/microsoft/vscode-extension-samples/blob/main/configuration-sample/src/extension.ts#L29
+  // vscode.commands.registerCommand('config.commands.installNivaLangServer', async () => {
+  //   const value = await vscode.window.showQuickPick(['yes', 'no', 'maybe'], { placeHolder: 'Wanna install niva?' });
+  //   if (value === "yes") {
+  //     vscode.window.showInformationMessage("Installing...")
+
+  //   }
+  // })
+
+
+  const showInfoNotification = vscode.commands.registerCommand('niva.install', async () => {
+      const value = await vscode.window.showQuickPick(['yes', 'no', 'maybe'], { placeHolder: 'Wanna install niva?' });
+      if (value === "yes") {
+        vscode.window.showInformationMessage("Installing...")
+        // progress bar
+        vscode.window.withProgress({
+          location: vscode.ProgressLocation.Notification,
+          title: "Installing...",
+          cancellable: true
+        }, (progress, token) => {
+          token.onCancellationRequested(() => {
+            console.log("User canceled the long running operation");
+          });
+
+          progress.report({ increment: 0 });
+
+          setTimeout(() => {
+            progress.report({ increment: 10, message: "Still going..." });
+          }, 1000);
+
+          setTimeout(() => {
+            progress.report({ increment: 40, message: "Still going even more..." });
+          }, 2000);
+
+          setTimeout(() => {
+            progress.report({ increment: 50, message: "I am long running! - almost there..." });
+          }, 3000);
+
+          const p = new Promise<void>(resolve => {
+            setTimeout(() => {
+              resolve();
+            }, 5000);
+          });
+
+          return p;
+        });
+      }
+  });
+  context.subscriptions.push(showInfoNotification)
+
   const needTurnOnLSP = useLsp && pathToVaLSeExec && !pathToVaLSeExec.startsWith("go to") && fs.existsSync(pathToVaLSeExec)
 
 
