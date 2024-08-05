@@ -1,6 +1,6 @@
-# Visual Studio Code support for Niva
+# Visual Studio Code support for Niva language
 
-<img align="left" width="96px" height="96px" src="niva-icon.webp" />
+<img align="center" width="96px" height="96px" src="niva-icon.webp" />
 
 Features include:
 - Code completion
@@ -19,7 +19,6 @@ https://github.com/user-attachments/assets/6316bc45-3ce8-4c0b-8daf-685fa8a6e726
 
 ### On hover types
 https://github.com/user-attachments/assets/eb55f6ef-d267-471f-b790-db5c34065c3d
-
 
 
 
