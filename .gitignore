@@ -1,6 +1,9 @@
 *.map
 node_modules
+bun.lockb
 *.vsix
+
+src/out
 
 # Mac & Win
 *~

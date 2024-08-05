@@ -13,11 +13,8 @@
     "files.trimFinalNewlines": true,
     "editor.formatOnSave": true,
     "cSpell.words": [
-        "hexa",
         "niva",
-        "Niva",
-        "vshexa",
-        "vsix"
+        "Niva"
     ],
     "javascript.format.semicolons": "remove"
 }

@@ -3,38 +3,45 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.deactivate = exports.activate = void 0;
 const vscode_1 = require("vscode");
 const node_1 = require("vscode-languageclient/node");
+const vscode = require("vscode");
+const fs = require("node:fs");
 let lc;
-let shKotinMy = '/home/gavr/Documents/Projects/Fun/lsp/vaLSe/build/install/nivals/bin/nivals';
 function activate(context) {
-    // let runEnvironment = { ...process.env };
-    // let runExe: Executable = {
-    //   command: "/home/gavr/.niva/bin/nivalsnative",
-    //   // args: [runCommand],
-    //   options: {
-    //     env: runEnvironment
-    //     // shell: true
-    //   },
-    //   // transport: TransportKind.stdio
-    // };
+    vscode.window.showInformationMessage("HELLOOO");
+    vscode.window.showInformationMessage("HELLOOO");
+    vscode.window.showInformationMessage("HELLOOO");
+    // vscode.window.showInformationMessage("Haloooo!")
+    const configuration = vscode.workspace.getConfiguration();
+    const pathToVaLSeExec = configuration.get('niva.valse');
+    const useLsp = configuration.get('niva.useLSP');
+    const workspaceFolder = vscode_1.workspace.workspaceFolders.length == 1 ? vscode_1.workspace.workspaceFolders[0] : undefined;
     let clientOptions = {
         documentSelector: ['niva'],
         synchronize: {
             // fileEvents: workspace.createFileSystemWatcher('**/*.niva')
             fileEvents: vscode_1.workspace.createFileSystemWatcher('**/.clientrc'),
         },
-        workspaceFolder: vscode_1.workspace.workspaceFolders[0]
+        workspaceFolder: workspaceFolder
     };
-    let javaServerOptions = {
-        run: { command: "sh", args: [shKotinMy] },
-        debug: { command: "sh", args: [shKotinMy] }
-    };
-    // Create the language client and start the client.
-    lc = new node_1.LanguageClient('niva Lang Server', javaServerOptions, clientOptions);
-    lc.info("hallo from niva vsc extension4");
-    lc.info("workspace.workspaceFolders = " + vscode_1.workspace.workspaceFolders[0].uri);
-    lc.info(context.extensionPath);
-    // lc.setTrace(Trace.Verbose); // this only throw exception from eclipse
-    lc.start();
+    const valseExist = fs.existsSync(pathToVaLSeExec);
+    const needTurnOnLSP = useLsp && pathToVaLSeExec && !pathToVaLSeExec.startsWith("go to") && valseExist;
+    if (needTurnOnLSP) {
+        vscode.window.showInformationMessage("vaLSe is found!");
+        let javaServerOptions = {
+            run: { command: "sh", args: [pathToVaLSeExec] },
+            debug: { command: "sh", args: [pathToVaLSeExec] }
+        };
+        // Create the language client and start the client.
+        lc = new node_1.LanguageClient('niva Lang Server', javaServerOptions, clientOptions);
+        lc.info("workspace.workspaceFolders = " + vscode_1.workspace.workspaceFolders[0].uri);
+        lc.info(context.extensionPath);
+        lc.info("Starting vaLSe...");
+        // lc.setTrace(Trace.Verbose); // this only throw exception from eclipse
+        lc.start();
+    }
+    else {
+        vscode.window.showInformationMessage("vaLSe not found, specify it from extension settings");
+    }
 }
 exports.activate = activate;
 function deactivate() {

@@ -2,9 +2,9 @@
 	"name": "vsniva",
 	"displayName": "Niva",
 	"description": "Niva Programming Language",
-	"version": "0.2.1",
-	"publisher": "PeyTy",
-	"author": "PeyTy",
+	"version": "0.1.2",
+	"publisher": "Gavr",
+	"author": "Gavr",
 	"license": "MIT",
 	"icon": "images/icon.png",
 	"homepage": "https://github.com/gavr123456789/niva-vscode-bundle/blob/master/README.md",
@@ -48,10 +48,26 @@
 			"type": "object",
 			"title": "Niva",
 			"properties": {
-				"niva.path": {
+
+				"niva.jvm": {
 					"type": "string",
-					"default": "niva",
-					"description": "Path to Niva compiler"
+					"default": "Not used for now ~/.niva/bin/niva",
+					"description": "Path to Niva compiler Jvm"
+				},
+				"niva.native": {
+					"type": "string",
+					"default": "Not used for now ~/.niva/bin/jvm/bin/niva",
+					"description": "Path to Niva compiler native"
+				},
+				"niva.useLSP": {
+					"type": "boolean",
+					"default": "true",
+					"description": "Use LSP(vaLSe path required)(autocompletion, errors highlight)"
+				},
+				"niva.valse": {
+					"type": "string",
+					"default": "go to https://github.com/gavr123456789/vaLSe and run ./gradlew installDist then put here path to vaLSe/build/install/nivals/bin/nivals",
+					"description": "Path to vaLSe - niva Language Server"
 				}
 			}
 		},
@@ -69,12 +85,6 @@
 	"bugs": {
 		"url": "https://github.com/gavr123456789/niva-vscode-bundle/issues"
 	},
-	"__metadata": {
-		"id": "00000000-0000-0000-0000-887b4cbe5b32",
-		"publisherDisplayName": "PeyTy",
-		"publisherId": "00000000-0000-0000-94b3-5b5ba4c7aece",
-		"isPreReleaseVersion": false
-	},
 
 	"devDependencies": {
 		"@types/node": "^17.0.45",
@@ -82,10 +92,8 @@
 		"@vscode/test-electron": "^2.1.3",
 		"typescript": "^4.6.4"
 	},
-	"dependencies": {
-		"vscode-languageclient": "^8.0.1"
-	},
 	"scripts": {
+		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./src",
 		"watch": "tsc -w -p ./src",
 		"update-vscode": "node ./node_modules/vscode/bin/install"

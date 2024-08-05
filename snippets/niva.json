@@ -1,0 +1,8 @@
+{
+    ".source.niva": {
+     "ifTrue: [] ifFalse: []": {
+            "prefix": "iftf",
+            "body": "${1:condition} ifTrue: [\n\t${2:thenDo}\n] ifFalse: [\n\t\n]"
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+	"name": "niva-language-client",
+	"description": "VSCode part of a language server",
+	"author": "gavr",
+	"license": "MIT",
+	"version": "0.0.1",
+	"publisher": "gavr123456789",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/gavr123456789/niva-vscode-bundle"
+	},
+	"engines": {
+		"vscode": "^1.75.0"
+	},
+	"dependencies": {
+		"vscode-languageclient": "^9.0.1"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.75.1",
+		"@vscode/test-electron": "^2.3.9"
+	}
+}
