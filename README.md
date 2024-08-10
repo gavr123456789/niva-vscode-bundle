@@ -2,7 +2,24 @@
 
 <img align="center" width="96px" height="96px" src="niva-icon.webp" />
 
-Features include:
+
+### 1) build vaLSe(niva lang server) from source
+1) go to https://github.com/gavr123456789/vaLSe
+2) run `./gradlew installDist`
+3) copy path to `vaLSe/build/install/nivals/bin/nivals` binary
+
+### 2) Install ext
+1) Search "niva" in marketplace and install
+2) Go to extension's settings and insert path to nivals binary 
+![image](https://github.com/user-attachments/assets/9115b46f-388a-4ec3-b1fd-01eb89041e03)
+3) open folder which contais main.niva file and try it out
+![image](https://github.com/user-attachments/assets/474ce629-c54e-46e5-a269-c62e45cd3b4a)
+Install ext
+
+## Read the [tutorial](https://gavr123456789.github.io/niva-site/reference.html)
+
+
+## Features include:
 - Code completion
 - Go-to-definition
 - Errors reporting
