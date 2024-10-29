@@ -83,9 +83,11 @@ export function activate(context: ExtensionContext) {
     vscode.window.showInformationMessage("vaLSe is found!")
 
     const isWindows = process.platform === "win32";
-    const command = isWindows ? "cmd.exe" : "sh";
+    // const command = isWindows ? "cmd.exe" : "sh";
     const winPathToBat = pathToVaLSeExec.endsWith(".bat") ? pathToVaLSeExec : pathToVaLSeExec + ".bat"
-    const args = isWindows ? ["/c", winPathToBat] : [pathToVaLSeExec];
+
+    const command = isWindows ? winPathToBat : "sh";
+    const args = isWindows ? [] : [pathToVaLSeExec]; // "/c", winPathToBat
 
     let javaServerOptions: ServerOptions = {
       run: { command, args },
