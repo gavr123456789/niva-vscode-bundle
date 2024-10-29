@@ -55,17 +55,6 @@
 			"type": "object",
 			"title": "Niva",
 			"properties": {
-
-				"niva.jvm": {
-					"type": "string",
-					"default": "Not used for now ~/.niva/bin/niva",
-					"description": "Path to Niva compiler Jvm"
-				},
-				"niva.native": {
-					"type": "string",
-					"default": "Not used for now ~/.niva/bin/jvm/bin/niva",
-					"description": "Path to Niva compiler native"
-				},
 				"niva.useLSP": {
 					"type": "boolean",
 					"default": "true",
@@ -74,7 +63,7 @@
 				"niva.valse": {
 					"type": "string",
 					"default": "go to https://github.com/gavr123456789/vaLSe and run ./gradlew installDist then put here path to vaLSe/build/install/nivals/bin/nivals",
-					"description": "Path to vaLSe - niva Language Server"
+					"description": "Path to vaLSe"
 				}
 			}
 		},
