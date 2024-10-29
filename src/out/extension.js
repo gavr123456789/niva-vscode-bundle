@@ -71,10 +71,17 @@ function activate(context) {
     const needTurnOnLSP = useLsp && pathToVaLSeExec && !pathToVaLSeExec.startsWith("go to") && fs.existsSync(pathToVaLSeExec);
     if (needTurnOnLSP) {
         vscode.window.showInformationMessage("vaLSe is found!");
+        const isWindows = process.platform === "win32";
+        const command = isWindows ? "cmd" : "sh";
+        const args = isWindows ? ["/c", pathToVaLSeExec + ".bat"] : [pathToVaLSeExec];
         let javaServerOptions = {
-            run: { command: "sh", args: [pathToVaLSeExec] },
-            debug: { command: "sh", args: [pathToVaLSeExec] }
+            run: { command, args },
+            debug: { command, args }
         };
+        // let javaServerOptions: ServerOptions = {
+        //   run: {command: "sh", args: [pathToVaLSeExec]},
+        //   debug: {command: "sh", args: [pathToVaLSeExec]}
+        // }
         // Create the language client and start the client.
         lc = new node_1.LanguageClient('niva Lang Server', javaServerOptions, clientOptions);
         lc.info("workspace.workspaceFolders = " + vscode_1.workspace.workspaceFolders[0].uri);
