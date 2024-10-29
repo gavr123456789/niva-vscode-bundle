@@ -83,18 +83,15 @@ export function activate(context: ExtensionContext) {
     vscode.window.showInformationMessage("vaLSe is found!")
 
     const isWindows = process.platform === "win32";
-    const command = isWindows ? "cmd" : "sh";
-    const args = isWindows ? ["/c", pathToVaLSeExec + ".bat"] : [pathToVaLSeExec];
+    const command = isWindows ? "cmd.exe" : "sh";
+    const winPathToBat = pathToVaLSeExec.endsWith(".bat") ? pathToVaLSeExec : pathToVaLSeExec + ".bat"
+    const args = isWindows ? ["/c", winPathToBat] : [pathToVaLSeExec];
 
     let javaServerOptions: ServerOptions = {
       run: { command, args },
       debug: { command, args }
     };
 
-    // let javaServerOptions: ServerOptions = {
-    //   run: {command: "sh", args: [pathToVaLSeExec]},
-    //   debug: {command: "sh", args: [pathToVaLSeExec]}
-    // }
     // Create the language client and start the client.
     lc = new LanguageClient(
         'niva Lang Server',
