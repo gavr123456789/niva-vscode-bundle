@@ -59,3 +59,4 @@ https://github.com/user-attachments/assets/0fe21432-9e76-4b86-8438-b7198956c549
 
 
 To compile run `npm run compile`
+Note for me: `vsce publish minor`

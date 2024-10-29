@@ -82,10 +82,19 @@ export function activate(context: ExtensionContext) {
   if (needTurnOnLSP) {
     vscode.window.showInformationMessage("vaLSe is found!")
 
+    const isWindows = process.platform === "win32";
+    const command = isWindows ? "cmd" : "sh";
+    const args = isWindows ? ["/c", pathToVaLSeExec + ".bat"] : [pathToVaLSeExec];
+
     let javaServerOptions: ServerOptions = {
-      run: {command: "sh", args: [pathToVaLSeExec]},
-      debug: {command: "sh", args: [pathToVaLSeExec]}
-    }
+      run: { command, args },
+      debug: { command, args }
+    };
+
+    // let javaServerOptions: ServerOptions = {
+    //   run: {command: "sh", args: [pathToVaLSeExec]},
+    //   debug: {command: "sh", args: [pathToVaLSeExec]}
+    // }
     // Create the language client and start the client.
     lc = new LanguageClient(
         'niva Lang Server',
