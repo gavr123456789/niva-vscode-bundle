@@ -2,7 +2,7 @@
 	"name": "vsniva",
 	"displayName": "Niva",
 	"description": "Niva Programming Language",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"publisher": "Gavr",
 	"author": "Gavr",
 	"license": "MIT",
@@ -81,7 +81,6 @@
 	"bugs": {
 		"url": "https://github.com/gavr123456789/niva-vscode-bundle/issues"
 	},
-
 	"devDependencies": {
 		"@types/node": "^17.0.45",
 		"@types/vscode": "^1.67.0",
