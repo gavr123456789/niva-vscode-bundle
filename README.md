@@ -2,11 +2,10 @@
 
 <img align="center" width="96px" height="96px" src="niva-icon.webp" />
 
-
 ### 1) build vaLSe(niva lang server) from source
-1) go to https://github.com/gavr123456789/vaLSe
-2) run `./gradlew installDist`
-3) copy path to `vaLSe/build/install/nivals/bin/nivals` binary
+1) `git clone https://github.com/gavr123456789/vaLSe.git`
+2) run `./gradlew installDist` there
+3) copy path to `vaLSe/build/install/nivals/bin/nivals` binary, you will need it later
 
 ### 2) Install ext
 1) Search "niva" in marketplace and install
