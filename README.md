@@ -15,6 +15,8 @@
 ![image](https://github.com/user-attachments/assets/474ce629-c54e-46e5-a269-c62e45cd3b4a)
 Install ext
 
+!!! `main.niva` is entry point, your folder should contain it somewhere !!!
+
 ## Read the [tutorial](https://gavr123456789.github.io/niva-site/reference.html)
 
 
